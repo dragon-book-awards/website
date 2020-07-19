@@ -1,16 +1,11 @@
 import { FC } from 'react'
 
-enum Border {
-    top,
-    bottom
-}
-
 interface Props {
-    border?: Border
+    border?: 'top' | 'bottom'
     fluid?: boolean
 }
 
-const NavBar: FC<Props> = ({ border = 'top', fluid = false }) => {
+const NavBar: FC<Props> = ({ border = 'bottom', fluid = false }) => {
     return <p>NavBar</p>
 }
 
