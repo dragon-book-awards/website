@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 const Main: FC = ({ children }) => {
-    return <div>{children}</div>
+    return <main>{children}</main>
 }
 
 export default Main
