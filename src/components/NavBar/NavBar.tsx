@@ -1,12 +1,24 @@
 import { FC } from 'react'
+import styles from './index.module.scss'
+import classNames from 'classnames'
 
 interface Props {
-    border?: 'top' | 'bottom'
+    borderDirection?: 'top' | 'bottom'
     fluid?: boolean
 }
 
-const NavBar: FC<Props> = ({ border = 'bottom', fluid = false }) => {
-    return <p>NavBar</p>
+const NavBar: FC<Props> = ({
+    borderDirection = 'bottom',
+    fluid = false,
+    children
+}) => {
+    const containerClassName = classNames(
+        [styles.container],
+        [styles[`border-${borderDirection}`]],
+        { [styles.fluid]: fluid }
+    )
+
+    return <div className={containerClassName}>{children}</div>
 }
 
 export default NavBar

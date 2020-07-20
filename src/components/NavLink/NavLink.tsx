@@ -1,5 +1,6 @@
 import { ReactNode, FC } from 'react'
-import { LinkProps } from 'next/link'
+import Link, { LinkProps } from 'next/link'
+import styles from './index.module.scss'
 
 interface Props {
     icon?: ReactNode
@@ -7,8 +8,16 @@ interface Props {
     linkProps: LinkProps
 }
 
-const NavLink: FC<Props> = ({ icon, title, linkProps }) => {
-    return <p>NavLink</p>
+const NavLink: FC<Props> = ({ icon, title, linkProps, children }) => {
+    return (
+        <Link {...linkProps}>
+            <a className={styles.container}>
+                {icon}
+                {title}
+                {children}
+            </a>
+        </Link>
+    )
 }
 
 export default NavLink
