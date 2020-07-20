@@ -1,0 +1,35 @@
+@import '../../styles/global.scss';
+
+.botNav {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+}
+
+.topNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.content {
+    margin-top: $nav-height;
+    margin-bottom: 0;
+}
+
+@media (max-width: $breakpoint-small) {
+    .content {
+        margin-top: 0;
+        margin-bottom: $nav-height;
+    }
+    .topNav {
+        position: inherit;
+    }
+
+    .botNav {
+        display: inherit;
+    }
+}

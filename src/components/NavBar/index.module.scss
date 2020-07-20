@@ -1,12 +1,12 @@
 @import '../../styles/global.scss';
 
-$height: 5rem;
 $padding: 10px 5vw;
 $border: 0.5rem solid $ssis-blue;
 
 .container {
-    height: $height;
+    height: $nav-height;
     padding: $padding;
+    background-color: white;
     overflow: hidden;
 }
 

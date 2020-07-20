@@ -3,14 +3,21 @@ import { BotNav } from './BotNav'
 import { Footer } from 'components/Footer'
 import { Main } from 'components/Main'
 import { TopNav } from './TopNav'
+import styles from './index.module.scss'
 
 const Layout: FC = ({ children }) => {
     return (
         <div>
-            <TopNav />
-            <Main>{children}</Main>
-            <Footer />
-            <BotNav />
+            <div className={styles.topNav}>
+                <TopNav />
+            </div>
+            <div className={styles.content}>
+                <Main>{children}</Main>
+                <Footer />
+            </div>
+            <div className={styles.botNav}>
+                <BotNav />
+            </div>
         </div>
     )
 }

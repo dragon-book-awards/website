@@ -1,3 +1,5 @@
+@import '../../../styles/global.scss';
+
 $grid-gap: 5vw;
 $logo-max-width: 4rem;
 
@@ -7,17 +9,17 @@ $logo-max-width: 4rem;
 
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: max-content;
     grid-gap: $grid-gap;
+}
+
+.logo {
+    max-width: 50px;
 }
 
 .leftContainer {
     width: 100%;
     height: 100%;
-}
-
-.logo {
-    max-width: 50px;
 }
 
 .rightContainer {
@@ -26,4 +28,14 @@ $logo-max-width: 4rem;
     display: grid;
     grid-auto-flow: column;
     grid-gap: $grid-gap;
+}
+
+@media (max-width: $breakpoint-small) {
+    .container {
+        justify-content: center;
+    }
+
+    .rightContainer {
+        display: none;
+    }
 }
