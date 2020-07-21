@@ -6,7 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
+        "contentful-typescript-codegen": "contentful-typescript-codegen --output src/services/contentful/contentful.d.ts"
     },
     "dependencies": {
         "classnames": "^2.2.6",
