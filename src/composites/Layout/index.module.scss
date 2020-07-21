@@ -1,5 +1,9 @@
 @import '../../styles/global.scss';
 
+.container {
+    position: relative;
+}
+
 .botNav {
     position: fixed;
     bottom: 0;
@@ -15,16 +19,27 @@
     right: 0;
 }
 
-.content {
+.main {
     margin-top: $nav-height;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
     margin-bottom: 0;
 }
 
 @media (max-width: $breakpoint-small) {
-    .content {
+    .main {
         margin-top: 0;
+    }
+
+    .footer {
         margin-bottom: $nav-height;
     }
+
     .topNav {
         position: inherit;
     }

@@ -11,8 +11,10 @@ const Layout: FC = ({ children }) => {
             <div className={styles.topNav}>
                 <TopNav />
             </div>
-            <div className={styles.content}>
+            <div className={styles.main}>
                 <Main>{children}</Main>
+            </div>
+            <div className={styles.footer}>
                 <Footer />
             </div>
             <div className={styles.botNav}>
