@@ -1,0 +1,23 @@
+@import '../../styles/global.scss';
+
+$padding: 10px 5vw;
+$border: 0.5rem solid $ssis-blue;
+
+.container {
+    height: $nav-height;
+    padding: $padding;
+    background-color: white;
+    overflow: hidden;
+}
+
+.fluid {
+    padding: 0;
+}
+
+.border-top {
+    border-top: $border;
+}
+
+.border-bottom {
+    border-bottom: $border;
+}
