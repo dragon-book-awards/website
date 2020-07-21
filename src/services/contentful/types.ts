@@ -22,6 +22,7 @@ export interface IAward extends Entry<IAwardFields> {
         locale: string
         contentType: {
             sys: {
+                id: 'award'
                 linkType: 'ContentType'
                 type: 'Link'
             }
@@ -57,6 +58,7 @@ export interface IBook extends Entry<IBookFields> {
         locale: string
         contentType: {
             sys: {
+                id: 'book'
                 linkType: 'ContentType'
                 type: 'Link'
             }
@@ -86,6 +88,7 @@ export interface IBookCategory extends Entry<IBookCategoryFields> {
         locale: string
         contentType: {
             sys: {
+                id: 'bookCategory'
                 linkType: 'ContentType'
                 type: 'Link'
             }
@@ -118,6 +121,7 @@ export interface ICompetition extends Entry<ICompetitionFields> {
         locale: string
         contentType: {
             sys: {
+                id: 'competition'
                 linkType: 'ContentType'
                 type: 'Link'
             }
@@ -144,6 +148,7 @@ export interface IInfo extends Entry<IInfoFields> {
         locale: string
         contentType: {
             sys: {
+                id: 'info'
                 linkType: 'ContentType'
                 type: 'Link'
             }
@@ -173,6 +178,7 @@ export interface IInfoCategory extends Entry<IInfoCategoryFields> {
         locale: string
         contentType: {
             sys: {
+                id: 'infoCategory'
                 linkType: 'ContentType'
                 type: 'Link'
             }
@@ -208,6 +214,7 @@ export interface IWebsite extends Entry<IWebsiteFields> {
         locale: string
         contentType: {
             sys: {
+                id: 'website'
                 linkType: 'ContentType'
                 type: 'Link'
             }
