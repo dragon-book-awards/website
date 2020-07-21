@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { GetServerSideProps } from 'next'
 
 const HomePage: FC = () => {
     return (
@@ -207,6 +208,10 @@ const HomePage: FC = () => {
             <br />
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    return { props: {} }
 }
 
 export default HomePage
