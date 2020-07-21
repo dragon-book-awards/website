@@ -11,7 +11,7 @@ import {
     IInfoCategory,
     IBook,
     IInfo
-} from '../../@types/generated/contentful'
+} from './contentful.d'
 
 export const contentfulDeliveryClient = createClient({
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_DELIVERY_ACCESS_TOKEN,
@@ -19,7 +19,9 @@ export const contentfulDeliveryClient = createClient({
     environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT
 })
 
-export const retrieveCurrentWebsite = async (client: ContentfulClientApi) => {
+export const contentfulRetrieveCurrentWebsite = async (
+    client: ContentfulClientApi
+) => {
     const {
         items: [website]
     }: ContentfulCollection<IWebsite> = await client.getEntries({
@@ -30,7 +32,7 @@ export const retrieveCurrentWebsite = async (client: ContentfulClientApi) => {
     return website
 }
 
-export const retrieveCurrentCompetition = async (
+export const contentfulRetrieveCurrentCompetition = async (
     client: ContentfulClientApi
 ) => {
     const {
@@ -40,7 +42,9 @@ export const retrieveCurrentCompetition = async (
     return currentCompetition
 }
 
-export const retrieveCompetitions = async (client: ContentfulClientApi) => {
+export const contentfulRetrieveCompetitions = async (
+    client: ContentfulClientApi
+) => {
     const {
         items: competitions
     }: ContentfulCollection<ICompetition> = await client.getEntries({
@@ -50,7 +54,7 @@ export const retrieveCompetitions = async (client: ContentfulClientApi) => {
     return competitions
 }
 
-export const retrieveCompetition = async (
+export const contentfulRetrieveCompetition = async (
     client: ContentfulClientApi,
     competitionId: string
 ) => {
@@ -65,7 +69,7 @@ export const retrieveCompetition = async (
     return competition
 }
 
-export const retrieveBookCategory = async (
+export const contentfulRetrieveBookCategory = async (
     client: ContentfulClientApi,
     bookCategoryId: string
 ) => {
@@ -80,7 +84,7 @@ export const retrieveBookCategory = async (
     return bookCategory
 }
 
-export const retrieveInfoCategory = async (
+export const contentfulRetrieveInfoCategory = async (
     client: ContentfulClientApi,
     infoCategoryId: string
 ) => {
@@ -95,7 +99,7 @@ export const retrieveInfoCategory = async (
     return infoCategory
 }
 
-export const retrieveBook = async (
+export const contentfulRetrieveBook = async (
     client: ContentfulClientApi,
     bookId: string
 ) => {
@@ -110,7 +114,7 @@ export const retrieveBook = async (
     return book
 }
 
-export const retrieveInfo = async (
+export const contentfulRetrieveInfo = async (
     client: ContentfulClientApi,
     infoId: string
 ) => {
