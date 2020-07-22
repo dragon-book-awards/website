@@ -1,8 +1,7 @@
 import { InferGetServerSidePropsType } from 'next'
-import { client, contentful } from 'services/contentful'
-import InfoBlock from 'components/InfoBlock/InfoBlock'
-import { RichText } from 'components/RichText'
-import stringify from 'json-stringify-safe'
+import { contentfulClient, contentful } from 'services'
+import { InfoBlock } from 'components'
+import { RichText } from 'components'
 
 const HomePage = ({
     currentCompetition,
@@ -24,7 +23,7 @@ const HomePage = ({
 export const getServerSideProps = async () => {
     const {
         fields: { currentCompetition, archivedCompeitions, homePageInfo }
-    } = await contentful.retrieveCurrentWebsite(client)
+    } = await contentful.retrieveCurrentWebsite(contentfulClient)
 
     return {
         props: {

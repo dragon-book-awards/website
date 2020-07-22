@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
 import { FC } from 'react'
-import { Layout } from 'composites/Layout'
+import { Layout } from 'composites'
 import 'styles/global.scss'
 
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {

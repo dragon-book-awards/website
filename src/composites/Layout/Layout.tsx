@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { BotNav } from './BotNav'
-import { Footer } from 'components/Footer'
-import { Main } from 'components/Main'
+import { Footer } from 'components'
+import { Main } from 'components'
 import { TopNav } from './TopNav'
 import styles from './index.module.scss'
 
