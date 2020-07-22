@@ -7,7 +7,7 @@ interface Props {
     fluid?: boolean
 }
 
-const NavBar: FC<Props> = ({
+const Bar: FC<Props> = ({
     borderDirection = 'bottom',
     fluid = false,
     children
@@ -21,4 +21,4 @@ const NavBar: FC<Props> = ({
     return <div className={containerClassName}>{children}</div>
 }
 
-export default NavBar
+export default Bar

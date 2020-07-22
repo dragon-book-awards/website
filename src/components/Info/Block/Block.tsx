@@ -6,7 +6,7 @@ interface Props {
     content: ReactNode
 }
 
-const InfoBlock: FC<Props> = ({ title, content }) => {
+const Block: FC<Props> = ({ title, content }) => {
     return (
         <article className={styles.container}>
             <header>
@@ -17,4 +17,4 @@ const InfoBlock: FC<Props> = ({ title, content }) => {
     )
 }
 
-export default InfoBlock
+export default Block
