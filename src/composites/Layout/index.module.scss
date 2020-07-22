@@ -2,43 +2,20 @@
 
 .container {
     min-height: 100vh;
-    position: relative;
+    display: grid;
+    grid-auto-flow: rows;
+    grid-auto-rows: min-content 1fr min-content min-content;
 }
 
 .botNav {
-    position: fixed;
+    position: sticky;
     bottom: 0;
-    right: 0;
-    left: 0;
     display: none;
-}
-
-.topNav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-
-.main {
-    margin-top: $nav-height;
-}
-
-.footer {
-    margin-bottom: 0;
 }
 
 @media (max-width: $breakpoint-small) {
     .main {
         margin-top: 0;
-    }
-
-    .footer {
-        margin-bottom: $nav-height;
-    }
-
-    .topNav {
-        position: inherit;
     }
 
     .botNav {

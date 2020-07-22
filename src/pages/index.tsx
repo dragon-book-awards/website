@@ -1,19 +1,16 @@
-import { FC } from 'react'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { InferGetServerSidePropsType } from 'next'
 import { client, contentful } from 'services/contentful'
 
 const HomePage = ({
-    info
+    currentWebsite
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-    return <p>Hi</p>
+    return <p>{JSON.stringify(currentWebsite, null, 4)}</p>
 }
 
 export const getServerSideProps = async () => {
-    const {
-        fields: { homePageInfo }
-    } = await contentful.retrieveCurrentWebsite(client)
+    const currentWebsite = await contentful.retrieveCurrentWebsite(client)
 
-    return { props: { info: homePageInfo } }
+    return { props: { currentWebsite } }
 }
 
 export default HomePage

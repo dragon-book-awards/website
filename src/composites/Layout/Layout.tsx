@@ -7,7 +7,7 @@ import styles from './index.module.scss'
 
 const Layout: FC = ({ children }) => {
     return (
-        <div>
+        <div className={styles.container}>
             <div className={styles.topNav}>
                 <TopNav />
             </div>
