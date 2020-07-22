@@ -1,43 +1,26 @@
 @import '../../styles/global.scss';
 
 .container {
-    position: relative;
-}
-
-.botNav {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    display: none;
+    min-height: 100vh;
+    display: grid;
+    grid-auto-flow: rows;
+    grid-auto-rows: min-content 1fr min-content min-content;
 }
 
 .topNav {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
 }
 
-.main {
-    margin-top: $nav-height;
-}
-
-.footer {
-    position: absolute;
+.botNav {
+    position: sticky;
     bottom: 0;
-    right: 0;
-    left: 0;
-    margin-bottom: 0;
+    display: none;
 }
 
 @media (max-width: $breakpoint-small) {
     .main {
         margin-top: 0;
-    }
-
-    .footer {
-        margin-bottom: $nav-height;
     }
 
     .topNav {

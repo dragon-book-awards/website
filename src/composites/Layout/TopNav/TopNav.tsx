@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { NavBar } from 'components/NavBar'
-import NavLink from 'components/NavLink/NavLink'
+import { NavBar } from 'components'
+import { NavLink } from 'components'
 import { FaBook, FaInfo, FaArchive } from 'react-icons/fa'
 import styles from './index.module.scss'
 

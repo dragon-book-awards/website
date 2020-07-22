@@ -1,226 +1,37 @@
-import { FC } from 'react'
-import { GetServerSideProps } from 'next'
-import { client, contentful } from 'services/contentful'
+import { InferGetServerSidePropsType } from 'next'
+import { contentfulClient, contentful } from 'services'
+import { InfoBlock } from 'components'
+import { RichText } from 'components'
 
-const HomePage: FC = () => {
+const HomePage = ({
+    currentCompetition,
+    archivedCompeitions,
+    homePageInfo
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return (
         <>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
-            <p>
-                home
-                <br />
-            </p>
+            <InfoBlock
+                title={homePageInfo.fields.title}
+                content={
+                    <RichText documentNode={homePageInfo.fields.content} />
+                }
+            />
         </>
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    console.log(await contentful.retrieveCurrentWebsite(client))
+export const getServerSideProps = async () => {
+    const {
+        fields: { currentCompetition, archivedCompeitions, homePageInfo }
+    } = await contentful.retrieveCurrentWebsite(contentfulClient)
 
-    return { props: {} }
+    return {
+        props: {
+            currentCompetition,
+            archivedCompeitions: archivedCompeitions || null,
+            homePageInfo
+        }
+    }
 }
 
 export default HomePage
