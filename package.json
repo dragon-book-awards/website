@@ -9,10 +9,12 @@
         "contentful-typescript-codegen": "contentful-typescript-codegen --output src/services/contentful/types.ts"
     },
     "dependencies": {
+        "@contentful/rich-text-react-renderer": "^14.1.1",
         "@contentful/rich-text-types": "^14.1.1",
         "classnames": "^2.2.6",
         "contentful": "^7.14.5",
         "dotenv": "^8.2.0",
+        "json-stringify-safe": "^5.0.1",
         "next": "9.4.4",
         "react": "16.13.1",
         "react-dom": "16.13.1",

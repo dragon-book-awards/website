@@ -1,16 +1,38 @@
 import { InferGetServerSidePropsType } from 'next'
 import { client, contentful } from 'services/contentful'
+import InfoBlock from 'components/InfoBlock/InfoBlock'
+import { RichText } from 'components/RichText'
+import stringify from 'json-stringify-safe'
 
 const HomePage = ({
-    currentWebsite
+    currentCompetition,
+    archivedCompeitions,
+    homePageInfo
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-    return <p>{JSON.stringify(currentWebsite, null, 4)}</p>
+    return (
+        <>
+            <InfoBlock
+                title={homePageInfo.fields.title}
+                content={
+                    <RichText documentNode={homePageInfo.fields.content} />
+                }
+            />
+        </>
+    )
 }
 
 export const getServerSideProps = async () => {
-    const currentWebsite = await contentful.retrieveCurrentWebsite(client)
+    const {
+        fields: { currentCompetition, archivedCompeitions, homePageInfo }
+    } = await contentful.retrieveCurrentWebsite(client)
 
-    return { props: { currentWebsite } }
+    return {
+        props: {
+            currentCompetition,
+            archivedCompeitions: archivedCompeitions || null,
+            homePageInfo
+        }
+    }
 }
 
 export default HomePage
