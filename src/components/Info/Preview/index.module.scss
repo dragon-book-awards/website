@@ -1,0 +1,22 @@
+@import '../../../styles/global.scss';
+
+.container {
+    color: black;
+    text-decoration: none;
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-gap: 0.5rem;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    max-width: 15rem;
+    border-left: 5px solid lightgrey;
+    transition: $transition-duration;
+
+    &:hover,
+    &:focus {
+        border-left: 5px solid grey;
+        background-color: whitesmoke;
+    }
+}

@@ -24,7 +24,6 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
                     list-style-position: outside;
                     padding-left: 2rem;
                 }
-
                 h1,
                 h2,
                 h3,
@@ -32,8 +31,6 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
                 h5,
                 h6 {
                     font-family: 'Baloo Da 2';
-                    line-height: 100%;
-                    margin: 1rem 0;
                 }
 
                 h1 {

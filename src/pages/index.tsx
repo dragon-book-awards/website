@@ -1,7 +1,7 @@
 import { InferGetServerSidePropsType } from 'next'
 import { contentfulClient, contentful } from 'services'
 import { InfoBlock } from 'components'
-import { RichText } from 'components'
+import { RichText } from 'composites'
 
 const HomePage = ({
     currentCompetition,

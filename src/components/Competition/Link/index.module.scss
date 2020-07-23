@@ -1,0 +1,12 @@
+@import '../../../styles/global.scss';
+
+.link {
+    color: $ssis-blue;
+    transition: $transition-duration;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
