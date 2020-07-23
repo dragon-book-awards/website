@@ -1,5 +1,11 @@
 import { FC } from 'react'
-import { Document, BLOCKS, INLINES, Inline } from '@contentful/rich-text-types'
+import {
+    Document,
+    BLOCKS,
+    INLINES,
+    Inline,
+    Block
+} from '@contentful/rich-text-types'
 import {
     documentToReactComponents,
     Options
@@ -18,7 +24,10 @@ import {
     BookLink,
     BookCategoryLink,
     InfoCategoryLink,
-    CompetitionLink
+    CompetitionLink,
+    BookPreview,
+    Image,
+    AwardPreview
 } from 'components'
 
 interface Props {
@@ -70,6 +79,58 @@ const RichText: FC<Props> = ({ documentNode }) => {
                 } else {
                     return <p>Not found</p>
                 }
+            },
+            [BLOCKS.EMBEDDED_ENTRY]: (node: Block) => {
+                const contentTypeId = node.data.target.sys.contentType.sys.id
+
+                if (contentTypeId === 'book') {
+                    const {
+                        sys: { id },
+                        fields: {
+                            coverImage: {
+                                fields: {
+                                    file: { url },
+                                    description
+                                }
+                            }
+                        }
+                    }: IBook = node.data.target
+
+                    return (
+                        <BookPreview
+                            coverImage={<Image src={url} alt={description} />}
+                            id={id}
+                        />
+                    )
+                } else if (contentTypeId === 'award') {
+                    const {
+                        sys: { id },
+                        fields: { name, winner }
+                    }: IAward = node.data.target
+
+                    return (
+                        <AwardPreview
+                            name={name}
+                            id={id}
+                            coverImage={
+                                winner && (
+                                    <Image
+                                        src={
+                                            winner.fields.coverImage.fields.file
+                                                .url
+                                        }
+                                        alt={
+                                            winner.fields.coverImage.fields
+                                                .description
+                                        }
+                                    />
+                                )
+                            }
+                        />
+                    )
+                }
+
+                return <p>Temp</p>
             }
         }
     }
