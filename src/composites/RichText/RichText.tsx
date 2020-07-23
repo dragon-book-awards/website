@@ -28,7 +28,8 @@ import {
     BookPreview,
     Image,
     AwardPreview,
-    InfoPreview
+    InfoPreview,
+    BookCategoryPreview
 } from 'components'
 import { InfoCategoryPreview } from 'components/InfoCategory'
 
@@ -144,6 +145,32 @@ const RichText: FC<Props> = ({ documentNode }) => {
                     }: IInfoCategory = node.data.target
 
                     return <InfoCategoryPreview name={name} id={id} />
+                } else if (contentTypeId === 'bookCategory') {
+                    const {
+                        sys: { id },
+                        fields: { name, books }
+                    }: IBookCategory = node.data.target
+
+                    return (
+                        <BookCategoryPreview
+                            name={name}
+                            id={id}
+                            coverImages={books.map(
+                                ({
+                                    fields: {
+                                        coverImage: {
+                                            fields: {
+                                                description,
+                                                file: { url }
+                                            }
+                                        }
+                                    }
+                                }) => (
+                                    <Image src={url} alt={description} />
+                                )
+                            )}
+                        />
+                    )
                 }
                 return <p>Temp</p>
             }

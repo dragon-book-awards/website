@@ -1,8 +1,8 @@
 @import '../../../styles/global.scss';
 
 .container {
-    max-width: 15rem;
-    max-height: 20rem;
+    width: 15rem;
+    height: 20rem;
     overflow: hidden;
     display: inline-block;
     transition: $transition-duration;
