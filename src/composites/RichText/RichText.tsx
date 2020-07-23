@@ -33,6 +33,7 @@ import {
     CompetitionPreview
 } from 'components'
 import { InfoCategoryPreview } from 'components/InfoCategory'
+import { Asset } from 'contentful'
 
 interface Props {
     documentNode: Document
@@ -179,8 +180,20 @@ const RichText: FC<Props> = ({ documentNode }) => {
                     }: ICompetition = node.data.target
 
                     return <CompetitionPreview name={name} id={id} />
+                } else {
+                    return <p>Error loading this content...</p>
                 }
-                return <p>Temp</p>
+            },
+            [BLOCKS.EMBEDDED_ASSET]: (node) => {
+                console.log(node)
+                const {
+                    fields: {
+                        description,
+                        file: { url }
+                    }
+                }: Asset = node.data.target
+
+                return <Image src={url} alt={description} />
             }
         }
     }
