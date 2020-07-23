@@ -1,0 +1,10 @@
+@import '../../../styles/global.scss';
+
+.link {
+    color: $ssis-gold;
+    transition: $transition-duration;
+
+    &:hover {
+        color: $ssis-orange;
+    }
+}
