@@ -17,6 +17,7 @@
 
     .coverImage {
         z-index: -1;
+        transition-timing-function: ease-in;
     }
 
     .coverImage > * {
@@ -30,11 +31,11 @@
     }
     .coverImage:nth-child(2) {
         height: 3rem;
-        transition: 0.4s;
+        transition: 0.7s;
     }
     .coverImage:nth-child(3) {
         height: 2rem;
-        transition: 0.9s;
+        transition: 0.6s;
     }
     .coverImage:nth-child(4) {
         height: 5rem;

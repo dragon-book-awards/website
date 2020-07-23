@@ -29,7 +29,8 @@ import {
     Image,
     AwardPreview,
     InfoPreview,
-    BookCategoryPreview
+    BookCategoryPreview,
+    CompetitionPreview
 } from 'components'
 import { InfoCategoryPreview } from 'components/InfoCategory'
 
@@ -171,6 +172,13 @@ const RichText: FC<Props> = ({ documentNode }) => {
                             )}
                         />
                     )
+                } else if (contentTypeId === 'competition') {
+                    const {
+                        sys: { id },
+                        fields: { name }
+                    }: ICompetition = node.data.target
+
+                    return <CompetitionPreview name={name} id={id} />
                 }
                 return <p>Temp</p>
             }
