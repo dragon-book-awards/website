@@ -1,0 +1,22 @@
+@import '../../../styles/global.scss';
+
+.container {
+    color: black;
+    text-decoration: none;
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-gap: 1rem;
+    align-items: center;
+    justify-items: center;
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    max-width: 15rem;
+    border: 5px solid $ssis-blue;
+    border-radius: 2rem;
+    transition: $transition-duration;
+
+    &:hover {
+        box-shadow: 0 0 1rem $ssis-blue;
+    }
+}

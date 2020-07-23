@@ -27,7 +27,8 @@ import {
     CompetitionLink,
     BookPreview,
     Image,
-    AwardPreview
+    AwardPreview,
+    InfoPreview
 } from 'components'
 
 interface Props {
@@ -128,6 +129,13 @@ const RichText: FC<Props> = ({ documentNode }) => {
                             }
                         />
                     )
+                } else if (contentTypeId === 'info') {
+                    const {
+                        sys: { id },
+                        fields: { title }
+                    }: IInfo = node.data.target
+
+                    return <InfoPreview title={title} id={id} />
                 }
 
                 return <p>Temp</p>
