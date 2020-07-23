@@ -30,6 +30,7 @@ import {
     AwardPreview,
     InfoPreview
 } from 'components'
+import { InfoCategoryPreview } from 'components/InfoCategory'
 
 interface Props {
     documentNode: Document
@@ -136,8 +137,14 @@ const RichText: FC<Props> = ({ documentNode }) => {
                     }: IInfo = node.data.target
 
                     return <InfoPreview title={title} id={id} />
-                }
+                } else if (contentTypeId === 'infoCategory') {
+                    const {
+                        sys: { id },
+                        fields: { name }
+                    }: IInfoCategory = node.data.target
 
+                    return <InfoCategoryPreview name={name} id={id} />
+                }
                 return <p>Temp</p>
             }
         }
