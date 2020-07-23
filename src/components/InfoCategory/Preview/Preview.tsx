@@ -14,11 +14,9 @@ const Preview: FC<Props> = ({ name, id }) => {
             href="/info-categories/[infoCategoryId]"
             as={`/info-categories/${id}`}
         >
-            <a>
-                <div className={styles.container}>
-                    <FaInfoCircle />
-                    {name}
-                </div>
+            <a className={styles.container}>
+                <FaInfoCircle />
+                {name}
             </a>
         </Link>
     )

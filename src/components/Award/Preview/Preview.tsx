@@ -12,15 +12,13 @@ interface Props {
 const Preview: FC<Props> = ({ name, coverImage: CoverImage, id }) => {
     return (
         <Link href="/awards/[awardId]" as={`/awards/${id}`}>
-            <a>
-                <div className={styles.container}>
-                    <div className={styles.coverImage}>{CoverImage}</div>
-                    <div className={styles.content}>
-                        <span className={styles.icon}>
-                            <FaAward />
-                        </span>
-                        {name}
-                    </div>
+            <a className={styles.container}>
+                <div className={styles.coverImage}>{CoverImage}</div>
+                <div className={styles.content}>
+                    <span className={styles.icon}>
+                        <FaAward />
+                    </span>
+                    {name}
                 </div>
             </a>
         </Link>

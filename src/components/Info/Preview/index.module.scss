@@ -14,7 +14,8 @@
     border-left: 5px solid lightgrey;
     transition: $transition-duration;
 
-    &:hover {
+    &:hover,
+    &:focus {
         border-left: 5px solid grey;
         background-color: whitesmoke;
     }

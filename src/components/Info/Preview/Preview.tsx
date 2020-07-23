@@ -11,11 +11,9 @@ interface Props {
 const Preview: FC<Props> = ({ title, id }) => {
     return (
         <Link href="/info/[infoId]" as={`/info/${id}`}>
-            <a>
-                <div className={styles.container}>
-                    <FaInfoCircle />
-                    {title}
-                </div>
+            <a className={styles.container}>
+                <FaInfoCircle />
+                {title}
             </a>
         </Link>
     )

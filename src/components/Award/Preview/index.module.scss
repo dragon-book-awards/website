@@ -32,11 +32,12 @@
         font-size: 4rem;
     }
 
+    &:focus,
     &:hover {
         box-shadow: 0 0 1rem $ssis-gold;
 
         .content {
-            transform: scale(0.98);
+            transform: scale(0.95);
         }
 
         .coverImage {

@@ -5,7 +5,8 @@
     text-decoration: none;
     transition: $transition-duration;
 
-    &:hover {
+    &:hover,
+    &:focus {
         text-decoration: underline;
     }
 }

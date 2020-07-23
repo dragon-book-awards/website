@@ -4,13 +4,15 @@
     max-width: 15rem;
     max-height: 20rem;
     overflow: hidden;
+    display: inline-block;
     transition: $transition-duration;
 
     .coverImage {
         transition: $transition-duration;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         box-shadow: 0 0 1rem grey;
 
         .coverImage {

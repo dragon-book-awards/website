@@ -18,7 +18,8 @@ $grid-gap: 0.5rem;
 
     transition: $transition-duration all;
 
-    &:hover {
+    &:hover,
+    &:active {
         color: $ssis-blue;
         transform: scale(1.2);
     }
