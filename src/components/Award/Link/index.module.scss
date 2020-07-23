@@ -3,8 +3,9 @@
 .link {
     color: $ssis-gold;
     transition: $transition-duration;
+    text-decoration: none;
 
     &:hover {
-        color: $ssis-red;
+        text-decoration: underline;
     }
 }

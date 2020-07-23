@@ -4,12 +4,9 @@
     max-width: 15rem;
     max-height: 20rem;
     overflow: hidden;
-    border-radius: 2rem;
-    box-shadow: 0 0 0 grey;
     transition: $transition-duration;
 
     .coverImage {
-        transform: scale(1);
         transition: $transition-duration;
     }
 

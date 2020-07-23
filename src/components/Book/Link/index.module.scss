@@ -2,9 +2,10 @@
 
 .link {
     color: $ssis-blue;
+    text-decoration: none;
     transition: $transition-duration;
 
     &:hover {
-        color: $ssis-red;
+        text-decoration: underline;
     }
 }
