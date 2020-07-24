@@ -24,6 +24,21 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
                     list-style-position: outside;
                     padding-left: 2rem;
                 }
+
+                blockquote {
+                    margin: 1rem 0 1rem 1rem;
+                    padding-left: 1rem;
+                    border-left: 1px solid lightgrey;
+                }
+
+                code {
+                    display: inline-block;
+                    font-family: monospace;
+                    font-size: 1rem;
+                    padding: 0.5rem;
+                    background-color: whitesmoke;
+                }
+
                 h1,
                 h2,
                 h3,
