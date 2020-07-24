@@ -1,6 +1,7 @@
 import { FC, ReactElement } from 'react'
 import Link from 'next/link'
 import styles from './index.module.scss'
+import { FaBook } from 'react-icons/fa'
 
 interface Props {
     coverImages: ReactElement[]
@@ -18,7 +19,10 @@ const Preview: FC<Props> = ({ coverImages, name, id }) => {
                         </span>
                     ))}
                 </div>
-                <p className={styles.content}>{name}</p>
+                <p className={styles.content}>
+                    <FaBook />
+                    {name}
+                </p>
             </a>
         </Link>
     )

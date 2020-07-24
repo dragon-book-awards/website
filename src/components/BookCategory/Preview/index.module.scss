@@ -17,6 +17,7 @@
 
     .coverImage {
         z-index: -1;
+        box-shadow: 0 0 0.2rem grey;
         transition-timing-function: ease-in;
     }
 
@@ -42,24 +43,31 @@
         transition: 0.4s;
     }
     .coverImage:nth-child(5) {
+        box-shadow: 0 0 0.2rem grey;
         height: 2rem;
         transition: 0.3s;
     }
 
     .content {
         background-color: white;
-        display: inline-flex;
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 0.5rem;
         color: black;
         align-items: center;
         justify-content: center;
         height: 5rem;
         font-weight: bold;
         font-size: 1.5rem;
-        box-shadow: 0 0 0.3rem grey;
+        box-shadow: 0 0 0.2rem grey;
         transition: $transition-duration;
     }
 
     &:hover {
+        .coverImage {
+            box-shadow: 0 0 0.5rem grey;
+        }
+
         .coverImage:nth-child(1) {
             transform: translateY(10px);
         }
