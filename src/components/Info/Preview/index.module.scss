@@ -3,8 +3,9 @@
 .container {
     color: black;
     text-decoration: none;
-    display: inline-grid;
+    display: grid;
     grid-auto-flow: column;
+    grid-auto-columns: min-content 1fr;
     grid-gap: 0.5rem;
     align-items: center;
     padding: 1rem;
