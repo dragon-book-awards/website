@@ -38,15 +38,15 @@
 
     &:focus,
     &:hover {
-        box-shadow: inset 0 0 2rem $ssis-gold;
+        box-shadow: inset 0 0 1.5rem $ssis-gold;
 
         .content {
-            filter: drop-shadow(0 0 0.3rem $ssis-gold);
+            filter: drop-shadow(0 0 0.2rem $ssis-gold);
             transform: scale(0.95);
         }
 
         .coverImage {
-            filter: brightness(30%) grayscale(100%) blur(0.4px);
+            filter: brightness(30%) grayscale(100%) blur(0.3px);
             transform: scale(1.1);
         }
     }
