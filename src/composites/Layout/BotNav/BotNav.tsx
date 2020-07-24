@@ -18,7 +18,10 @@ const BotNav: FC = () => {
                 />
                 <NavLink
                     icon={<FaArchive />}
-                    linkProps={{ href: '/archive', as: '/archive' }}
+                    linkProps={{
+                        href: '/archive',
+                        as: '/archive'
+                    }}
                 />
             </div>
         </NavBar>

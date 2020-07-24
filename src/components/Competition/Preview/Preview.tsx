@@ -9,7 +9,7 @@ interface Props {
 
 const Preview: FC<Props> = ({ name, id }) => {
     return (
-        <Link href="/competitions/[competitionId]" as={`/competitions/${id}`}>
+        <Link href="/competitions/[id]" as={`/competitions/${id}`}>
             <a className={styles.container}>{name}</a>
         </Link>
     )

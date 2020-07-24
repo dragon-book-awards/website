@@ -10,10 +10,7 @@ interface Props {
 
 const Link: FC<Props> = ({ title, id }) => {
     return (
-        <NextLink
-            href="/competitions/[competitionId]"
-            as={`/competitions/${id}`}
-        >
+        <NextLink href="/competitions/[id]" as={`/competitions/${id}`}>
             <a className={styles.link}>
                 <FaCalendar />
                 &nbsp;
