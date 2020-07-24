@@ -11,7 +11,8 @@
     padding: 1rem;
     font-size: 1.5rem;
     font-weight: 900;
-    max-width: 15rem;
+    width: 15rem;
+    box-shadow: 0 0 0.1rem grey;
     border-left: 5px solid lightgrey;
     transition: $transition-duration;
 

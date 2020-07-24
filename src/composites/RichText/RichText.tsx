@@ -30,9 +30,9 @@ import {
     AwardPreview,
     InfoPreview,
     BookCategoryPreview,
-    CompetitionPreview
+    CompetitionPreview,
+    InfoCategoryPreview
 } from 'components'
-import { InfoCategoryPreview } from 'components/InfoCategory'
 import { Asset } from 'contentful'
 
 interface Props {

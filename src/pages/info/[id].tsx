@@ -2,6 +2,7 @@ import { InferGetServerSidePropsType, GetServerSidePropsContext } from 'next'
 import { contentfulClient, contentful } from 'services'
 import { InfoBlock } from 'components'
 import { RichText } from 'composites'
+import fclone from 'fclone'
 
 const InfoPage = ({
     title,
@@ -15,19 +16,15 @@ const InfoPage = ({
     )
 }
 
-export const getServerSideProps = async (
-    context: GetServerSidePropsContext
-) => {
-    const {
-        params: { id }
-    } = context
-
+export const getServerSideProps = async ({
+    params: { id }
+}: GetServerSidePropsContext) => {
     if (typeof id === 'string') {
         const {
             fields: { title, content }
         } = await contentful.retrieveInfo(contentfulClient, id)
 
-        return { props: { title, content } }
+        return { props: { title, content: fclone(content) } }
     }
 
     throw new Error()

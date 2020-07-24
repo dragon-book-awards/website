@@ -2,6 +2,7 @@ import { InferGetServerSidePropsType } from 'next'
 import { contentfulClient, contentful } from 'services'
 import { InfoBlock } from 'components'
 import { RichText } from 'composites'
+import fclone from 'fclone'
 
 const HomePage = ({
     currentCompetition,
@@ -27,9 +28,9 @@ export const getServerSideProps = async () => {
 
     return {
         props: {
-            currentCompetition,
+            currentCompetition: fclone(currentCompetition),
             archivedCompeitions: archivedCompeitions || null,
-            homePageInfo
+            homePageInfo: fclone(homePageInfo)
         }
     }
 }
