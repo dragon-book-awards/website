@@ -5,7 +5,8 @@ import {
     IBookCategoryFields,
     IInfoCategoryFields,
     IBookFields,
-    IInfoFields
+    IInfoFields,
+    IAwardFields
 } from './types'
 
 const retrieveCurrentWebsite = async (client: ContentfulClientApi) => {
@@ -97,6 +98,18 @@ const retrieveBook = async (client: ContentfulClientApi, id: string) => {
     return book
 }
 
+const retrieveBookAwards = async (client: ContentfulClientApi, id: string) => {
+    const {
+        items: awards
+    }: EntryCollection<IAwardFields> = await client.getEntries({
+        include: 10,
+        content_type: 'award',
+        'fields.winner.sys.id': id
+    })
+
+    return awards
+}
+
 const retrieveInfo = async (client: ContentfulClientApi, id: string) => {
     const {
         items: [info]
@@ -118,5 +131,6 @@ export default {
     retrieveCompetition,
     retrieveCompetitions,
     retrieveCurrentWebsite,
-    retrieveCurrentCompetition
+    retrieveCurrentCompetition,
+    retrieveBookAwards
 }

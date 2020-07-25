@@ -3,7 +3,7 @@ export { Main } from './Main'
 export { NavBar, NavLink } from './Nav'
 export { InfoLink, InfoBlock, InfoPreview } from './Info'
 export { AwardLink, AwardPreview } from './Award'
-export { BookLink, BookPreview } from './Book'
+export { BookLink, BookPreview, BookBlock } from './Book'
 export {
     BookCategoryLink,
     BookCategoryPreview,
