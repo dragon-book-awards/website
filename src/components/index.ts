@@ -4,7 +4,11 @@ export { NavBar, NavLink } from './Nav'
 export { InfoLink, InfoBlock, InfoPreview } from './Info'
 export { AwardLink, AwardPreview } from './Award'
 export { BookLink, BookPreview } from './Book'
-export { BookCategoryLink, BookCategoryPreview } from './BookCategory'
+export {
+    BookCategoryLink,
+    BookCategoryPreview,
+    BookCategoryBlock
+} from './BookCategory'
 export {
     InfoCategoryLink,
     InfoCategoryPreview,
