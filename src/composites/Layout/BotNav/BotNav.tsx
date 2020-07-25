@@ -11,13 +11,15 @@ const BotNav: FC = () => {
                 <NavLink
                     icon={<FaBook />}
                     linkProps={{
-                        href: '/competitions/current/book-categories'
+                        href: '/competitions/[id]',
+                        as: '/competitions/current'
                     }}
                 />
                 <NavLink
                     icon={<FaInfo />}
                     linkProps={{
-                        href: '/competitions/current/info-categories'
+                        href: '/competitions/[id]',
+                        as: '/competitions/current'
                     }}
                 />
                 <NavLink
