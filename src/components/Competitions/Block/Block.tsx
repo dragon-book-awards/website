@@ -8,7 +8,7 @@ interface Props {
 const Competitions: FC<Props> = ({ competitions }) => {
     return (
         <div className={styles.container}>
-            <h1>Competitions</h1>
+            <h1>Archive</h1>
             {competitions}
         </div>
     )

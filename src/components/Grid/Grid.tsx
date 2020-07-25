@@ -1,8 +1,19 @@
 import { FC } from 'react'
 import styles from './index.module.scss'
+import classNames from 'classnames'
 
-const Grid: FC = ({ children }) => {
-    return <div className={styles.container}>{children}</div>
+interface Props {
+    fluid?: boolean
+}
+
+const Grid: FC<Props> = ({ fluid = false, children }) => {
+    return (
+        <div
+            className={classNames(styles.container, { [styles.fluid]: fluid })}
+        >
+            {children}
+        </div>
+    )
 }
 
 export default Grid

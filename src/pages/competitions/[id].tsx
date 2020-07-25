@@ -22,17 +22,6 @@ const CompetitionPage = ({
     return (
         <>
             <HeaderBlock>{name}</HeaderBlock>
-            <InfoCategoriesBlock
-                infoCategories={
-                    <Grid>
-                        {infoCategories.map(
-                            ({ sys: { id }, fields: { name } }) => (
-                                <InfoCategoryPreview name={name} id={id} />
-                            )
-                        )}
-                    </Grid>
-                }
-            />
             <BookCategoriesBlock
                 bookCategories={
                     <Grid>
@@ -64,6 +53,18 @@ const CompetitionPage = ({
                     </Grid>
                 }
             />
+            <InfoCategoriesBlock
+                infoCategories={
+                    <Grid>
+                        {infoCategories.map(
+                            ({ sys: { id }, fields: { name } }) => (
+                                <InfoCategoryPreview name={name} id={id} />
+                            )
+                        )}
+                    </Grid>
+                }
+            />
+
             <AwardsBlock
                 awards={
                     <Grid>
@@ -96,6 +97,9 @@ const CompetitionPage = ({
                     </Grid>
                 }
             />
+
+            <br />
+            <br />
         </>
     )
 }

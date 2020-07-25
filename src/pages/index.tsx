@@ -1,6 +1,6 @@
 import { InferGetServerSidePropsType } from 'next'
 import { contentfulClient, contentful } from 'services'
-import { InfoBlock, HeaderBlock, CompetitionPreview } from 'components'
+import { InfoBlock, HeaderBlock, CompetitionPreview, Grid } from 'components'
 import { RichText } from 'composites'
 import fclone from 'fclone'
 

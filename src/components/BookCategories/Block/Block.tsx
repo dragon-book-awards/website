@@ -8,7 +8,7 @@ interface Props {
 const Block: FC<Props> = ({ bookCategories }) => {
     return (
         <div className={styles.container}>
-            <h1>Books</h1>
+            <h2>Books</h2>
             {bookCategories}
         </div>
     )
