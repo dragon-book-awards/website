@@ -1,6 +1,6 @@
 import { InferGetServerSidePropsType } from 'next'
 import { contentfulClient, contentful } from 'services'
-import { InfoBlock } from 'components'
+import { InfoBlock, HeaderBlock, CompetitionPreview } from 'components'
 import { RichText } from 'composites'
 import fclone from 'fclone'
 
@@ -11,10 +11,20 @@ const HomePage = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return (
         <>
+            <HeaderBlock>Dragon Book Awards</HeaderBlock>
             <InfoBlock
                 title={homePageInfo.fields.title}
                 content={
-                    <RichText documentNode={homePageInfo.fields.content} />
+                    <>
+                        <RichText documentNode={homePageInfo.fields.content} />
+                        <br />
+                        <br />
+
+                        <CompetitionPreview
+                            id={currentCompetition.sys.id}
+                            name={currentCompetition.fields.name}
+                        />
+                    </>
                 }
             />
         </>
