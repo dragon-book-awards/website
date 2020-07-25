@@ -10,17 +10,20 @@ const BotNav: FC = () => {
             <div className={styles.container}>
                 <NavLink
                     icon={<FaBook />}
-                    linkProps={{ href: '/books', as: '/books' }}
+                    linkProps={{
+                        href: '/competitions/current/book-categories'
+                    }}
                 />
                 <NavLink
                     icon={<FaInfo />}
-                    linkProps={{ href: '/info', as: '/info' }}
+                    linkProps={{
+                        href: '/competitions/current/info-categories'
+                    }}
                 />
                 <NavLink
                     icon={<FaArchive />}
                     linkProps={{
-                        href: '/archive',
-                        as: '/archive'
+                        href: '/competitions'
                     }}
                 />
             </div>

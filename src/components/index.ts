@@ -17,3 +17,4 @@ export {
 export { CompetitionLink, CompetitionPreview } from './Competition'
 export { Image } from './Image'
 export { Grid } from './Grid'
+export { CompetitionsBlock } from './Competitions'
