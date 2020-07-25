@@ -96,8 +96,6 @@ const CompetitionPage = ({
                     </Grid>
                 }
             />
-            <br />
-            <br />
         </>
     )
 }
