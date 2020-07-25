@@ -223,7 +223,6 @@ const RichText: FC<Props> = ({ documentNode }) => {
                 }
             },
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
-                console.log(node)
                 const {
                     fields: {
                         description,
