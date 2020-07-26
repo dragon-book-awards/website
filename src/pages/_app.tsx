@@ -69,7 +69,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
                 }
 
                 h6 {
-                    font-size: calc(0.8rem + 1vw);
+                    font-size: calc(1rem + 0.5vw);
                 }
             `}</style>
         </Layout>

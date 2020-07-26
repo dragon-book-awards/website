@@ -69,27 +69,21 @@ const CompetitionPage = ({
                 awards={
                     <Grid>
                         {awards.map(
-                            ({
-                                sys: { id },
-                                fields: {
-                                    name,
-                                    winner: {
-                                        fields: {
-                                            coverImage: {
-                                                fields: {
-                                                    file: { url },
-                                                    description
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }) => (
+                            ({ sys: { id }, fields: { name, winner } }) => (
                                 <AwardPreview
                                     id={id}
                                     name={name}
                                     coverImage={
-                                        <Image src={url} alt={description} />
+                                        <Image
+                                            src={
+                                                winner?.fields.coverImage.fields
+                                                    .file.url
+                                            }
+                                            alt={
+                                                winner?.fields.coverImage.fields
+                                                    .description
+                                            }
+                                        />
                                     }
                                 />
                             )
