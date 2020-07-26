@@ -32,8 +32,8 @@ const BookBlock: FC<Props> = ({
                 </div>
                 {pinImage && (
                     <div className={styles.pin}>
-                        {pinImage}
-                        <h6>Read this book, win a pin!</h6>
+                        <div className={styles.pinImage}>{pinImage}</div>
+                        <h5>Read this book, win a pin!</h5>
                     </div>
                 )}
                 {content}
