@@ -2,11 +2,12 @@ import { InferGetStaticPropsType, GetServerSidePropsContext } from 'next'
 import { contentful, contentfulClient } from 'services'
 import { InfoCategoryBlock, Grid, InfoPreview } from 'components'
 import Head from 'next/head'
+import { RichText } from 'composites'
 
 const InfoCategoryPage = ({
     name,
     info,
-    description
+    content
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     return (
         <>
@@ -15,7 +16,7 @@ const InfoCategoryPage = ({
             </Head>
             <InfoCategoryBlock
                 name={name}
-                description={description}
+                content={<RichText documentNode={content} />}
                 info={
                     <Grid>
                         {info.map(({ sys: { id }, fields: { title } }) => (
@@ -33,13 +34,13 @@ export const getServerSideProps = async ({
 }: GetServerSidePropsContext) => {
     if (typeof id === 'string') {
         const {
-            fields: { name, description, info }
+            fields: { name, content, info }
         } = await contentful.retrieveInfoCategory(contentfulClient, id)
 
         return {
             props: {
                 name,
-                description: description || null,
+                content: content || null,
                 info
             }
         }
