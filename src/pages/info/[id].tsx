@@ -3,16 +3,22 @@ import { contentfulClient, contentful } from 'services'
 import { InfoBlock } from 'components'
 import { RichText } from 'composites'
 import fclone from 'fclone'
+import Head from 'next/head'
 
 const InfoPage = ({
     title,
     content
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return (
-        <InfoBlock
-            title={title}
-            content={<RichText documentNode={content} />}
-        />
+        <>
+            <Head>
+                <title>{title}</title>
+            </Head>
+            <InfoBlock
+                title={title}
+                content={<RichText documentNode={content} />}
+            />
+        </>
     )
 }
 

@@ -2,6 +2,7 @@ import { InferGetStaticPropsType, GetServerSidePropsContext } from 'next'
 import { contentful, contentfulClient } from 'services'
 import fclone from 'fclone'
 import { InfoCategoryBlock, Grid, InfoPreview } from 'components'
+import Head from 'next/head'
 
 const InfoCategoryPage = ({
     name,
@@ -9,17 +10,22 @@ const InfoCategoryPage = ({
     description
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     return (
-        <InfoCategoryBlock
-            name={name}
-            description={description}
-            info={
-                <Grid>
-                    {info.map(({ sys: { id }, fields: { title } }) => (
-                        <InfoPreview title={title} id={id} />
-                    ))}
-                </Grid>
-            }
-        />
+        <>
+            <Head>
+                <title>{name} Info</title>
+            </Head>
+            <InfoCategoryBlock
+                name={name}
+                description={description}
+                info={
+                    <Grid>
+                        {info.map(({ sys: { id }, fields: { title } }) => (
+                            <InfoPreview title={title} id={id} />
+                        ))}
+                    </Grid>
+                }
+            />
+        </>
     )
 }
 

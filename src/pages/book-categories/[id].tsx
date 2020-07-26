@@ -2,6 +2,7 @@ import { contentful, contentfulClient } from 'services'
 import { InferGetStaticPropsType, GetServerSidePropsContext } from 'next'
 import fclone from 'fclone'
 import { BookCategoryBlock, Grid, BookPreview, Image } from 'components'
+import Head from 'next/head'
 
 const BookCategoryPage = ({
     name,
@@ -9,34 +10,39 @@ const BookCategoryPage = ({
     books
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     return (
-        <BookCategoryBlock
-            name={name}
-            description={description}
-            books={
-                <Grid>
-                    {books.map(
-                        ({
-                            sys: { id },
-                            fields: {
-                                coverImage: {
-                                    fields: {
-                                        file: { url },
-                                        description
+        <>
+            <Head>
+                <title>{name} Books</title>
+            </Head>
+            <BookCategoryBlock
+                name={name}
+                description={description}
+                books={
+                    <Grid>
+                        {books.map(
+                            ({
+                                sys: { id },
+                                fields: {
+                                    coverImage: {
+                                        fields: {
+                                            file: { url },
+                                            description
+                                        }
                                     }
                                 }
-                            }
-                        }) => (
-                            <BookPreview
-                                id={id}
-                                coverImage={
-                                    <Image src={url} alt={description} />
-                                }
-                            />
-                        )
-                    )}
-                </Grid>
-            }
-        />
+                            }) => (
+                                <BookPreview
+                                    id={id}
+                                    coverImage={
+                                        <Image src={url} alt={description} />
+                                    }
+                                />
+                            )
+                        )}
+                    </Grid>
+                }
+            />
+        </>
     )
 }
 
