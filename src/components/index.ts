@@ -1,23 +1,30 @@
 export { Footer } from './Footer'
 export { Main } from './Main'
 export { NavBar, NavLink } from './Nav'
-export { InfoLink, InfoBlock, InfoPreview } from './Info'
-export { AwardLink, AwardPreview, AwardBlock } from './Award'
-export { BookLink, BookPreview, BookBlock } from './Book'
 export {
-    BookCategoryLink,
-    BookCategoryPreview,
-    BookCategoryBlock
-} from './BookCategory'
-export {
+    InfoLink,
+    InfoBlock,
+    InfoPreview,
+    InfoCategoriesBlock,
     InfoCategoryLink,
     InfoCategoryPreview,
     InfoCategoryBlock
-} from './InfoCategory'
-export { CompetitionLink, CompetitionPreview } from './Competition'
+} from './Info'
+export { AwardLink, AwardPreview, AwardBlock, AwardAwardsBlock } from './Award'
+export {
+    BookLink,
+    BookPreview,
+    BookBlock,
+    BookCategoriesBlock,
+    BookCategoryLink,
+    BookCategoryPreview,
+    BookCategoryBlock
+} from './Book'
+export {
+    CompetitionLink,
+    CompetitionPreview,
+    CompetitionCompetitionsBlock
+} from './Competition'
 export { Image } from './Image'
 export { Grid } from './Grid'
-export { CompetitionsBlock } from './Competitions'
-export { BookCategoriesBlock } from './BookCategories'
-export { InfoCategoriesBlock } from './InfoCategories'
 export { HeaderBlock } from './HeaderBlock'

@@ -8,9 +8,9 @@ import {
     InfoCategoriesBlock,
     HeaderBlock,
     Image,
-    AwardPreview
+    AwardPreview,
+    AwardAwardsBlock
 } from 'components'
-import { AwardsBlock } from 'components/Awards'
 import Head from 'next/head'
 
 const CompetitionPage = ({
@@ -75,7 +75,7 @@ const CompetitionPage = ({
                 />
             )}
             {hideAwards !== 'true' && (
-                <AwardsBlock
+                <AwardAwardsBlock
                     awards={
                         <Grid>
                             {awards.map(

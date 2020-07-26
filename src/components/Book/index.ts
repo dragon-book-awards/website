@@ -3,4 +3,8 @@ export { Block as BookBlock } from './Block'
 export { Preview as BookPreview } from './Preview'
 
 export { CategoriesBlock as BookCategoriesBlock } from './Categories'
-export { CategoryLink, CategoryBlock, CategoryPreview } from './Category'
+export {
+    CategoryLink as BookCategoryLink,
+    CategoryBlock as BookCategoryBlock,
+    CategoryPreview as BookCategoryPreview
+} from './Category'
