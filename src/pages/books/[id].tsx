@@ -52,6 +52,7 @@ const BookPage = ({
                             }
                         }) => (
                             <AwardPreview
+                                key={id}
                                 id={id}
                                 coverImage={
                                     <Image src={url} alt={description} />

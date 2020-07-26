@@ -5,7 +5,7 @@ import classNames from 'classnames'
 interface Props {
     src: string
     alt: string
-    pin: boolean
+    pin?: boolean
 }
 
 const Image: FC<Props> = ({ src, alt, pin }) => {

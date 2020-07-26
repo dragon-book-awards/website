@@ -26,13 +26,17 @@ const BookBlock: FC<Props> = ({
                 {awards}
             </div>
             <div className={styles.content}>
-                <div className={styles.header}>
-                    <div className={styles.pinImageContainer}>{pinImage}</div>
-                    <div className={styles.text}>
-                        <h3>{title}</h3>
-                        <p>{author}</p>
-                    </div>
+                <div className={styles.text}>
+                    <h3>{title}</h3>
+                    <p>{author}</p>
                 </div>
+                <br />
+                {pinImage && (
+                    <div className={styles.pin}>
+                        {pinImage}
+                        <h6>Read this book, win a pin!</h6>
+                    </div>
+                )}
                 <br />
                 {content}
             </div>
