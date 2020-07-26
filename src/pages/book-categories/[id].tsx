@@ -1,12 +1,12 @@
 import { contentful, contentfulClient } from 'services'
 import { InferGetStaticPropsType, GetServerSidePropsContext } from 'next'
-import fclone from 'fclone'
 import { BookCategoryBlock, Grid, BookPreview, Image } from 'components'
 import Head from 'next/head'
+import { RichText } from 'composites'
 
 const BookCategoryPage = ({
     name,
-    description,
+    content,
     books
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     return (
@@ -16,7 +16,7 @@ const BookCategoryPage = ({
             </Head>
             <BookCategoryBlock
                 name={name}
-                description={description}
+                content={<RichText documentNode={content} />}
                 books={
                     <Grid>
                         {books.map(
@@ -51,14 +51,14 @@ export const getServerSideProps = async ({
 }: GetServerSidePropsContext) => {
     if (typeof id === 'string') {
         const {
-            fields: { name, description, books }
+            fields: { name, content, books }
         } = await contentful.retrieveBookCategory(contentfulClient, id)
 
         return {
             props: {
                 name,
-                description: description || null,
-                books: fclone(books)
+                content: content || null,
+                books
             }
         }
     }

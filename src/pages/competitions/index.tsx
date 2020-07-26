@@ -1,6 +1,5 @@
 import { contentful, contentfulClient } from 'services'
 import { InferGetStaticPropsType } from 'next'
-import fclone from 'fclone'
 import { CompetitionsBlock, Grid, CompetitionPreview } from 'components'
 import Head from 'next/head'
 
@@ -30,7 +29,7 @@ const CompetitionsPage = ({
 export const getServerSideProps = async () => {
     const competitions = await contentful.retrieveCompetitions(contentfulClient)
 
-    return { props: { competitions: fclone(competitions) } }
+    return { props: { competitions } }
 }
 
 export default CompetitionsPage

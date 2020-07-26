@@ -70,8 +70,8 @@ export interface IBookCategoryFields {
     /** Name */
     name: string
 
-    /** Description */
-    description?: string | undefined
+    /** Content */
+    content?: Document | undefined
 
     /** Books */
     books: IBook[]
@@ -160,8 +160,8 @@ export interface IInfoCategoryFields {
     /** Name */
     name: string
 
-    /** Description */
-    description?: string | undefined
+    /** Content */
+    content?: Document | undefined
 
     /** Info */
     info: IInfo[]
