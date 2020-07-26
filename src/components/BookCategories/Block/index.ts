@@ -1,1 +1,1 @@
-export { default as Block } from './Block.tsx'
+export { default as Block } from './Block'
