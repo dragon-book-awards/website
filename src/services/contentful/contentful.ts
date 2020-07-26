@@ -110,6 +110,18 @@ const retrieveBookAwards = async (client: ContentfulClientApi, id: string) => {
     return awards
 }
 
+const retrieveAward = async (client: ContentfulClientApi, id: string) => {
+    const {
+        items: [award]
+    }: EntryCollection<IAwardFields> = await client.getEntries({
+        include: 10,
+        content_type: 'award',
+        'sys.id': id
+    })
+
+    return award
+}
+
 const retrieveInfo = async (client: ContentfulClientApi, id: string) => {
     const {
         items: [info]
@@ -132,5 +144,6 @@ export default {
     retrieveCompetitions,
     retrieveCurrentWebsite,
     retrieveCurrentCompetition,
-    retrieveBookAwards
+    retrieveBookAwards,
+    retrieveAward
 }

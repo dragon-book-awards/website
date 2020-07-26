@@ -2,7 +2,7 @@ export { Footer } from './Footer'
 export { Main } from './Main'
 export { NavBar, NavLink } from './Nav'
 export { InfoLink, InfoBlock, InfoPreview } from './Info'
-export { AwardLink, AwardPreview } from './Award'
+export { AwardLink, AwardPreview, AwardBlock } from './Award'
 export { BookLink, BookPreview, BookBlock } from './Book'
 export {
     BookCategoryLink,
@@ -21,4 +21,3 @@ export { CompetitionsBlock } from './Competitions'
 export { BookCategoriesBlock } from './BookCategories'
 export { InfoCategoriesBlock } from './InfoCategories'
 export { HeaderBlock } from './HeaderBlock'
-export { AwardsBlock } from './Awards'
