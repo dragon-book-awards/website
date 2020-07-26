@@ -1,6 +1,10 @@
 import { contentful, contentfulClient } from 'services'
 import { InferGetStaticPropsType } from 'next'
-import { CompetitionsBlock, Grid, CompetitionPreview } from 'components'
+import {
+    Grid,
+    CompetitionPreview,
+    CompetitionCompetitionsBlock
+} from 'components'
 import Head from 'next/head'
 
 const CompetitionsPage = ({
@@ -11,7 +15,7 @@ const CompetitionsPage = ({
             <Head>
                 <title>Archive</title>
             </Head>
-            <CompetitionsBlock
+            <CompetitionCompetitionsBlock
                 competitions={
                     <Grid>
                         {competitions.map(
