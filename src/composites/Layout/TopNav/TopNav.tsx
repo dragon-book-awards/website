@@ -21,17 +21,25 @@ const TopNav: FC = () => {
                     <NavLink
                         icon={<FaBook />}
                         title="Books"
-                        linkProps={{ href: '/books', as: '/books' }}
+                        linkProps={{
+                            href: '/competitions/[id]',
+                            as: '/competitions/current'
+                        }}
                     />
                     <NavLink
                         icon={<FaInfo />}
                         title="Info"
-                        linkProps={{ href: '/info', as: '/info' }}
+                        linkProps={{
+                            href: '/competitions/[id]',
+                            as: '/competitions/current'
+                        }}
                     />
                     <NavLink
                         icon={<FaArchive />}
                         title="Archive"
-                        linkProps={{ href: '/archive', as: '/archive' }}
+                        linkProps={{
+                            href: '/competitions'
+                        }}
                     />
                 </div>
             </div>

@@ -10,7 +10,7 @@ interface Props {
 
 const Link: FC<Props> = ({ title, id }) => {
     return (
-        <NextLink href="/books/[bookId]" as={`/books/${id}`}>
+        <NextLink href="/books/[id]" as={`/books/${id}`}>
             <a className={styles.link}>
                 <FaBook />
                 &nbsp;

@@ -30,9 +30,9 @@ import {
     AwardPreview,
     InfoPreview,
     BookCategoryPreview,
-    CompetitionPreview
+    CompetitionPreview,
+    InfoCategoryPreview
 } from 'components'
-import { InfoCategoryPreview } from 'components/InfoCategory'
 import { Asset } from 'contentful'
 
 interface Props {
@@ -102,10 +102,16 @@ const RichText: FC<Props> = ({ documentNode }) => {
                     }: IBook = node.data.target
 
                     return (
-                        <BookPreview
-                            coverImage={<Image src={url} alt={description} />}
-                            id={id}
-                        />
+                        <>
+                            <br />
+                            <BookPreview
+                                coverImage={
+                                    <Image src={url} alt={description} />
+                                }
+                                id={id}
+                            />
+                            <br />
+                        </>
                     )
                 } else if (contentTypeId === 'award') {
                     const {
@@ -114,24 +120,28 @@ const RichText: FC<Props> = ({ documentNode }) => {
                     }: IAward = node.data.target
 
                     return (
-                        <AwardPreview
-                            name={name}
-                            id={id}
-                            coverImage={
-                                winner && (
-                                    <Image
-                                        src={
-                                            winner.fields.coverImage.fields.file
-                                                .url
-                                        }
-                                        alt={
-                                            winner.fields.coverImage.fields
-                                                .description
-                                        }
-                                    />
-                                )
-                            }
-                        />
+                        <>
+                            <br />
+                            <AwardPreview
+                                name={name}
+                                id={id}
+                                coverImage={
+                                    winner && (
+                                        <Image
+                                            src={
+                                                winner.fields.coverImage.fields
+                                                    .file.url
+                                            }
+                                            alt={
+                                                winner.fields.coverImage.fields
+                                                    .description
+                                            }
+                                        />
+                                    )
+                                }
+                            />
+                            <br />
+                        </>
                     )
                 } else if (contentTypeId === 'info') {
                     const {
@@ -139,14 +149,26 @@ const RichText: FC<Props> = ({ documentNode }) => {
                         fields: { title }
                     }: IInfo = node.data.target
 
-                    return <InfoPreview title={title} id={id} />
+                    return (
+                        <>
+                            <br />
+                            <InfoPreview title={title} id={id} />
+                            <br />
+                        </>
+                    )
                 } else if (contentTypeId === 'infoCategory') {
                     const {
                         sys: { id },
                         fields: { name }
                     }: IInfoCategory = node.data.target
 
-                    return <InfoCategoryPreview name={name} id={id} />
+                    return (
+                        <>
+                            <br />
+                            <InfoCategoryPreview name={name} id={id} />
+                            <br />
+                        </>
+                    )
                 } else if (contentTypeId === 'bookCategory') {
                     const {
                         sys: { id },
@@ -154,24 +176,28 @@ const RichText: FC<Props> = ({ documentNode }) => {
                     }: IBookCategory = node.data.target
 
                     return (
-                        <BookCategoryPreview
-                            name={name}
-                            id={id}
-                            coverImages={books.map(
-                                ({
-                                    fields: {
-                                        coverImage: {
-                                            fields: {
-                                                description,
-                                                file: { url }
+                        <>
+                            <br />
+                            <BookCategoryPreview
+                                name={name}
+                                id={id}
+                                coverImages={books.map(
+                                    ({
+                                        fields: {
+                                            coverImage: {
+                                                fields: {
+                                                    description,
+                                                    file: { url }
+                                                }
                                             }
                                         }
-                                    }
-                                }) => (
-                                    <Image src={url} alt={description} />
-                                )
-                            )}
-                        />
+                                    }) => (
+                                        <Image src={url} alt={description} />
+                                    )
+                                )}
+                            />
+                            <br />
+                        </>
                     )
                 } else if (contentTypeId === 'competition') {
                     const {
@@ -179,13 +205,24 @@ const RichText: FC<Props> = ({ documentNode }) => {
                         fields: { name }
                     }: ICompetition = node.data.target
 
-                    return <CompetitionPreview name={name} id={id} />
+                    return (
+                        <>
+                            <br />
+                            <CompetitionPreview name={name} id={id} />
+                            <br />
+                        </>
+                    )
                 } else {
-                    return <p>Error loading this content...</p>
+                    return (
+                        <>
+                            <br />
+                            <p>Error loading this content...</p>
+                            <br />
+                        </>
+                    )
                 }
             },
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
-                console.log(node)
                 const {
                     fields: {
                         description,
@@ -193,7 +230,13 @@ const RichText: FC<Props> = ({ documentNode }) => {
                     }
                 }: Asset = node.data.target
 
-                return <Image src={url} alt={description} />
+                return (
+                    <>
+                        <br />
+                        <Image src={url} alt={description} />
+                        <br />
+                    </>
+                )
             }
         }
     }

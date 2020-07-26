@@ -1,0 +1,49 @@
+@import '../../../styles/global.scss';
+
+.container {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    grid-gap: 2rem;
+    margin: 2rem 5vw 2rem 5vw;
+
+    @media (max-width: $breakpoint-small) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.coverImageContainer {
+    justify-self: center;
+    width: 15rem;
+    overflow: hidden;
+}
+
+.pin {
+    border-radius: 1rem;
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content 15rem;
+    grid-gap: 1rem;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: 'Baloo Da 2';
+    box-shadow: 0 0 0.1rem grey;
+    line-height: 100%;
+    align-items: center;
+    margin: 2rem 0 2rem 0;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+        line-height: 100%;
+    }
+
+    p {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}

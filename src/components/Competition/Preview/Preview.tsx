@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
 import styles from './index.module.scss'
+import { FaCalendar } from 'react-icons/fa'
 
 interface Props {
     name: string
@@ -9,8 +10,11 @@ interface Props {
 
 const Preview: FC<Props> = ({ name, id }) => {
     return (
-        <Link href="/competitions/[competitionId]" as={`/competitions/${id}`}>
-            <a className={styles.container}>{name}</a>
+        <Link href="/competitions/[id]" as={`/competitions/${id}`}>
+            <a className={styles.container}>
+                <FaCalendar />
+                {name}
+            </a>
         </Link>
     )
 }

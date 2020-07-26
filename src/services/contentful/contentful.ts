@@ -5,7 +5,8 @@ import {
     IBookCategoryFields,
     IInfoCategoryFields,
     IBookFields,
-    IInfoFields
+    IInfoFields,
+    IAwardFields
 } from './types'
 
 const retrieveCurrentWebsite = async (client: ContentfulClientApi) => {
@@ -39,16 +40,13 @@ const retrieveCompetitions = async (client: ContentfulClientApi) => {
     return competitions
 }
 
-const retrieveCompetition = async (
-    client: ContentfulClientApi,
-    competitionId: string
-) => {
+const retrieveCompetition = async (client: ContentfulClientApi, id: string) => {
     const {
         items: [competition]
     }: EntryCollection<ICompetitionFields> = await client.getEntries({
         include: 10,
         content_type: 'competition',
-        'sys.id': competitionId,
+        'sys.id': id,
         limit: 1
     })
 
@@ -57,14 +55,14 @@ const retrieveCompetition = async (
 
 const retrieveBookCategory = async (
     client: ContentfulClientApi,
-    bookCategoryId: string
+    id: string
 ) => {
     const {
         items: [bookCategory]
     }: EntryCollection<IBookCategoryFields> = await client.getEntries({
         include: 10,
         content_type: 'bookCategory',
-        'sys.id': bookCategoryId,
+        'sys.id': id,
         limit: 1
     })
 
@@ -73,40 +71,64 @@ const retrieveBookCategory = async (
 
 const retrieveInfoCategory = async (
     client: ContentfulClientApi,
-    infoCategoryId: string
+    id: string
 ) => {
     const {
         items: [infoCategory]
     }: EntryCollection<IInfoCategoryFields> = await client.getEntries({
         include: 10,
         content_type: 'infoCategory',
-        'sys.id': infoCategoryId,
+        'sys.id': id,
         limit: 1
     })
 
     return infoCategory
 }
 
-const retrieveBook = async (client: ContentfulClientApi, bookId: string) => {
+const retrieveBook = async (client: ContentfulClientApi, id: string) => {
     const {
         items: [book]
     }: EntryCollection<IBookFields> = await client.getEntries({
         include: 10,
         content_type: 'book',
-        'sys.id': bookId,
+        'sys.id': id,
         limit: 1
     })
 
     return book
 }
 
-const retrieveInfo = async (client: ContentfulClientApi, infoId: string) => {
+const retrieveBookAwards = async (client: ContentfulClientApi, id: string) => {
+    const {
+        items: awards
+    }: EntryCollection<IAwardFields> = await client.getEntries({
+        include: 10,
+        content_type: 'award',
+        'fields.winner.sys.id': id
+    })
+
+    return awards
+}
+
+const retrieveAward = async (client: ContentfulClientApi, id: string) => {
+    const {
+        items: [award]
+    }: EntryCollection<IAwardFields> = await client.getEntries({
+        include: 10,
+        content_type: 'award',
+        'sys.id': id
+    })
+
+    return award
+}
+
+const retrieveInfo = async (client: ContentfulClientApi, id: string) => {
     const {
         items: [info]
     }: EntryCollection<IInfoFields> = await client.getEntries({
         include: 10,
         content_type: 'info',
-        'sys.id': infoId,
+        'sys.id': id,
         limit: 1
     })
 
@@ -121,5 +143,7 @@ export default {
     retrieveCompetition,
     retrieveCompetitions,
     retrieveCurrentWebsite,
-    retrieveCurrentCompetition
+    retrieveCurrentCompetition,
+    retrieveBookAwards,
+    retrieveAward
 }

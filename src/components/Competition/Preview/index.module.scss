@@ -1,17 +1,21 @@
 @import '../../../styles/global.scss';
 
 .container {
-    display: inline-block;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
     color: black;
     text-decoration: none;
-    max-width: 15rem;
+    width: 15rem;
     padding: 1rem;
     font-size: 1.5rem;
     font-weight: bold;
-    box-shadow: 0 0 0.3rem grey;
     transition: $transition-duration;
+    border: 5px solid lightgray;
 
     &:hover {
-        box-shadow: 0 0 0.5rem grey;
+        border-color: $ssis-blue;
     }
 }

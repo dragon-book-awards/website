@@ -9,7 +9,7 @@ interface Props {
 
 const Preview: FC<Props> = ({ coverImage: CoverImage, id }) => {
     return (
-        <Link href="/books/[bookId]" as={`/books/${id}`}>
+        <Link href="/books/[id]" as={`/books/${id}`}>
             <a className={styles.container}>
                 <div className={styles.coverImage}>{CoverImage}</div>
             </a>
