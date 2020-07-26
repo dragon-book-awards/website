@@ -12,6 +12,7 @@ import {
     AwardPreview
 } from 'components'
 import { AwardsBlock } from 'components/Awards'
+import Head from 'next/head'
 
 const CompetitionPage = ({
     name,
@@ -21,6 +22,9 @@ const CompetitionPage = ({
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     return (
         <>
+            <Head>
+                <title>{name} Competition</title>
+            </Head>
             <HeaderBlock>{name}</HeaderBlock>
             <BookCategoriesBlock
                 bookCategories={

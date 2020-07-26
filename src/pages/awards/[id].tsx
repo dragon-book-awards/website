@@ -3,30 +3,40 @@ import { contentful, contentfulClient } from 'services'
 import fclone from 'fclone'
 import { AwardBlock } from 'components/Award'
 import { BookPreview, Image } from 'components'
+import Head from 'next/head'
 
 const AwardPage = ({
     name,
     winner
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return (
-        <AwardBlock
-            name={name}
-            winner={
-                winner ? (
-                    <BookPreview
-                        id={winner?.sys.id}
-                        coverImage={
-                            <Image
-                                src={winner?.fields.coverImage.fields.file.url}
-                                alt={
-                                    winner?.fields.coverImage.fields.description
-                                }
-                            />
-                        }
-                    />
-                ) : null
-            }
-        />
+        <>
+            <Head>
+                <title>{name} Award</title>
+            </Head>
+            <AwardBlock
+                name={name}
+                winner={
+                    winner ? (
+                        <BookPreview
+                            id={winner?.sys.id}
+                            coverImage={
+                                <Image
+                                    src={
+                                        winner?.fields.coverImage.fields.file
+                                            .url
+                                    }
+                                    alt={
+                                        winner?.fields.coverImage.fields
+                                            .description
+                                    }
+                                />
+                            }
+                        />
+                    ) : null
+                }
+            />
+        </>
     )
 }
 

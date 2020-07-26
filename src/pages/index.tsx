@@ -3,6 +3,7 @@ import { contentfulClient, contentful } from 'services'
 import { InfoBlock, HeaderBlock, CompetitionPreview, Grid } from 'components'
 import { RichText } from 'composites'
 import fclone from 'fclone'
+import Head from 'next/head'
 
 const HomePage = ({
     currentCompetition,
@@ -11,6 +12,9 @@ const HomePage = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return (
         <>
+            <Head>
+                <title>Dragon Book Awards</title>
+            </Head>
             <HeaderBlock>Dragon Book Awards</HeaderBlock>
             <InfoBlock
                 title={homePageInfo.fields.title}

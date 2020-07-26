@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app'
+import Head from 'next/head'
 import { FC } from 'react'
 import { Layout } from 'composites'
 import 'styles/global.scss'
@@ -6,6 +7,20 @@ import 'styles/global.scss'
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
     return (
         <Layout>
+            <Head>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+                <meta
+                    name="author"
+                    content="Saigon South International School"
+                />
+                <meta
+                    name="description"
+                    content="The Dragon Book Awards is a library program run by Saigon South International School with the goal of promoting reading throughout all divisions."
+                />
+            </Head>
             <Component {...pageProps} />
             <style jsx global>{`
                 * {
