@@ -23,7 +23,8 @@ const TopNav: FC = () => {
                         title="Books"
                         linkProps={{
                             href: '/competitions/[id]',
-                            as: '/competitions/current'
+                            as:
+                                '/competitions/current?hideInfo=true&hideAwards=true'
                         }}
                     />
                     <NavLink
@@ -31,7 +32,8 @@ const TopNav: FC = () => {
                         title="Info"
                         linkProps={{
                             href: '/competitions/[id]',
-                            as: '/competitions/current'
+                            as:
+                                '/competitions/current?hideBooks=true&hideAwards=true'
                         }}
                     />
                     <NavLink
