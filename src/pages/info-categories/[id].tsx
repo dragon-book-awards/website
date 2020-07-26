@@ -1,6 +1,5 @@
 import { InferGetStaticPropsType, GetServerSidePropsContext } from 'next'
 import { contentful, contentfulClient } from 'services'
-import fclone from 'fclone'
 import { InfoCategoryBlock, Grid, InfoPreview } from 'components'
 import Head from 'next/head'
 
@@ -41,7 +40,7 @@ export const getServerSideProps = async ({
             props: {
                 name,
                 description: description || null,
-                info: fclone(info)
+                info
             }
         }
     }

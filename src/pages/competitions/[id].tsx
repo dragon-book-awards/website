@@ -1,6 +1,5 @@
 import { InferGetStaticPropsType, GetServerSidePropsContext } from 'next'
 import { contentful, contentfulClient } from 'services'
-import fclone from 'fclone'
 import {
     InfoCategoryPreview,
     Grid,
@@ -124,9 +123,9 @@ export const getServerSideProps = async ({
         return {
             props: {
                 name,
-                bookCategories: fclone(bookCategories),
-                infoCategories: fclone(infoCategories),
-                awards: fclone(awards),
+                bookCategories,
+                infoCategories,
+                awards,
                 hideBooks: hideBooks || null,
                 hideAwards: hideAwards || null,
                 hideInfo: hideInfo || null

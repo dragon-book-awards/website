@@ -1,6 +1,5 @@
 import { InferGetServerSidePropsType, GetServerSidePropsContext } from 'next'
 import { contentful, contentfulClient } from 'services'
-import fclone from 'fclone'
 import { AwardBlock } from 'components/Award'
 import { BookPreview, Image } from 'components'
 import Head from 'next/head'
@@ -48,7 +47,7 @@ export const getServerSideProps = async ({
             fields: { name, winner }
         } = await contentful.retrieveAward(contentfulClient, id)
 
-        return { props: { name, winner: fclone(winner) || null } }
+        return { props: { name, winner: winner || null } }
     }
 
     throw new Error()

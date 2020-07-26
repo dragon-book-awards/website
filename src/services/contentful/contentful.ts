@@ -8,6 +8,7 @@ import {
     IInfoFields,
     IAwardFields
 } from './types'
+import fclone from 'fclone'
 
 const retrieveCurrentWebsite = async (client: ContentfulClientApi) => {
     const {
@@ -18,7 +19,7 @@ const retrieveCurrentWebsite = async (client: ContentfulClientApi) => {
         'fields.active': true
     })
 
-    return website
+    return fclone(website)
 }
 
 const retrieveCurrentCompetition = async (client: ContentfulClientApi) => {
@@ -26,7 +27,7 @@ const retrieveCurrentCompetition = async (client: ContentfulClientApi) => {
         fields: { currentCompetition }
     } = await retrieveCurrentWebsite(client)
 
-    return currentCompetition
+    return fclone(currentCompetition)
 }
 
 const retrieveCompetitions = async (client: ContentfulClientApi) => {
@@ -37,7 +38,7 @@ const retrieveCompetitions = async (client: ContentfulClientApi) => {
         content_type: 'competition'
     })
 
-    return competitions
+    return fclone(competitions)
 }
 
 const retrieveCompetition = async (client: ContentfulClientApi, id: string) => {
@@ -50,7 +51,7 @@ const retrieveCompetition = async (client: ContentfulClientApi, id: string) => {
         limit: 1
     })
 
-    return competition
+    return fclone(competition)
 }
 
 const retrieveBookCategory = async (
@@ -66,7 +67,7 @@ const retrieveBookCategory = async (
         limit: 1
     })
 
-    return bookCategory
+    return fclone(bookCategory)
 }
 
 const retrieveInfoCategory = async (
@@ -82,7 +83,7 @@ const retrieveInfoCategory = async (
         limit: 1
     })
 
-    return infoCategory
+    return fclone(infoCategory)
 }
 
 const retrieveBook = async (client: ContentfulClientApi, id: string) => {
@@ -95,7 +96,7 @@ const retrieveBook = async (client: ContentfulClientApi, id: string) => {
         limit: 1
     })
 
-    return book
+    return fclone(book)
 }
 
 const retrieveBookAwards = async (client: ContentfulClientApi, id: string) => {
@@ -107,7 +108,7 @@ const retrieveBookAwards = async (client: ContentfulClientApi, id: string) => {
         'fields.winner.sys.id': id
     })
 
-    return awards
+    return fclone(awards)
 }
 
 const retrieveAward = async (client: ContentfulClientApi, id: string) => {
@@ -119,7 +120,7 @@ const retrieveAward = async (client: ContentfulClientApi, id: string) => {
         'sys.id': id
     })
 
-    return award
+    return fclone(award)
 }
 
 const retrieveInfo = async (client: ContentfulClientApi, id: string) => {
@@ -132,7 +133,7 @@ const retrieveInfo = async (client: ContentfulClientApi, id: string) => {
         limit: 1
     })
 
-    return info
+    return fclone(info)
 }
 
 export default {
