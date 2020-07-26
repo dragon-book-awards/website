@@ -1,4 +1,4 @@
-import { InferGetStaticPropsType, GetStaticPropsContext } from 'next'
+import { InferGetStaticPropsType, GetServerSidePropsContext } from 'next'
 import { contentful, contentfulClient } from 'services'
 import fclone from 'fclone'
 import {
@@ -18,7 +18,10 @@ const CompetitionPage = ({
     name,
     bookCategories,
     infoCategories,
-    awards
+    awards,
+    hideBooks,
+    hideInfo,
+    hideAwards
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     return (
         <>
@@ -26,76 +29,80 @@ const CompetitionPage = ({
                 <title>{name} Competition</title>
             </Head>
             <HeaderBlock>{name}</HeaderBlock>
-            <BookCategoriesBlock
-                bookCategories={
-                    <Grid>
-                        {bookCategories.map(
-                            ({ sys: { id }, fields: { name, books } }) => (
-                                <BookCategoryPreview
-                                    name={name}
-                                    id={id}
-                                    coverImages={books.map(
-                                        ({
-                                            fields: {
-                                                coverImage: {
-                                                    fields: {
-                                                        description,
-                                                        file: { url }
+            {hideBooks !== 'true' && (
+                <BookCategoriesBlock
+                    bookCategories={
+                        <Grid>
+                            {bookCategories.map(
+                                ({ sys: { id }, fields: { name, books } }) => (
+                                    <BookCategoryPreview
+                                        name={name}
+                                        id={id}
+                                        coverImages={books.map(
+                                            ({
+                                                fields: {
+                                                    coverImage: {
+                                                        fields: {
+                                                            description,
+                                                            file: { url }
+                                                        }
                                                     }
                                                 }
-                                            }
-                                        }) => (
+                                            }) => (
+                                                <Image
+                                                    src={url}
+                                                    alt={description}
+                                                />
+                                            )
+                                        )}
+                                    />
+                                )
+                            )}
+                        </Grid>
+                    }
+                />
+            )}
+            {hideInfo !== 'true' && (
+                <InfoCategoriesBlock
+                    infoCategories={
+                        <Grid>
+                            {infoCategories.map(
+                                ({ sys: { id }, fields: { name } }) => (
+                                    <InfoCategoryPreview name={name} id={id} />
+                                )
+                            )}
+                        </Grid>
+                    }
+                />
+            )}
+            {hideAwards !== 'true' && (
+                <AwardsBlock
+                    awards={
+                        <Grid>
+                            {awards.map(
+                                ({ sys: { id }, fields: { name, winner } }) => (
+                                    <AwardPreview
+                                        id={id}
+                                        name={name}
+                                        coverImage={
                                             <Image
-                                                src={url}
-                                                alt={description}
+                                                src={
+                                                    winner?.fields.coverImage
+                                                        .fields.file.url
+                                                }
+                                                alt={
+                                                    winner?.fields.coverImage
+                                                        .fields.description
+                                                }
                                             />
-                                        )
-                                    )}
-                                />
-                            )
-                        )}
-                    </Grid>
-                }
-            />
-            <InfoCategoriesBlock
-                infoCategories={
-                    <Grid>
-                        {infoCategories.map(
-                            ({ sys: { id }, fields: { name } }) => (
-                                <InfoCategoryPreview name={name} id={id} />
-                            )
-                        )}
-                    </Grid>
-                }
-            />
-
-            <AwardsBlock
-                awards={
-                    <Grid>
-                        {awards.map(
-                            ({ sys: { id }, fields: { name, winner } }) => (
-                                <AwardPreview
-                                    id={id}
-                                    name={name}
-                                    coverImage={
-                                        <Image
-                                            src={
-                                                winner?.fields.coverImage.fields
-                                                    .file.url
-                                            }
-                                            alt={
-                                                winner?.fields.coverImage.fields
-                                                    .description
-                                            }
-                                        />
-                                    }
-                                />
-                            )
-                        )}
-                    </Grid>
-                }
-            />
-
+                                        }
+                                    />
+                                )
+                            )}
+                        </Grid>
+                    }
+                />
+            )}
             <br />
             <br />
         </>
@@ -103,8 +110,9 @@ const CompetitionPage = ({
 }
 
 export const getServerSideProps = async ({
-    params: { id }
-}: GetStaticPropsContext) => {
+    params: { id },
+    query: { hideBooks, hideAwards, hideInfo }
+}: GetServerSidePropsContext) => {
     if (typeof id === 'string') {
         const {
             fields: { name, bookCategories, infoCategories, awards }
@@ -118,7 +126,10 @@ export const getServerSideProps = async ({
                 name,
                 bookCategories: fclone(bookCategories),
                 infoCategories: fclone(infoCategories),
-                awards: fclone(awards)
+                awards: fclone(awards),
+                hideBooks: hideBooks || null,
+                hideAwards: hideAwards || null,
+                hideInfo: hideInfo || null
             }
         }
     }
