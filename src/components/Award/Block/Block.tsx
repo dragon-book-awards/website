@@ -15,7 +15,11 @@ const Block: FC<Props> = ({ name, winner }) => {
                 <br />
                 {name}
             </h1>
-            <div className={styles.winner}>{winner}</div>
+            {winner ? (
+                <div className={styles.winner}>{winner}</div>
+            ) : (
+                <h5>No winner yet...</h5>
+            )}
         </div>
     )
 }
