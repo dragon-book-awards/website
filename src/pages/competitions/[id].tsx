@@ -125,7 +125,7 @@ export const getServerSideProps = async ({
                 name,
                 bookCategories,
                 infoCategories,
-                awards,
+                awards: awards || null,
                 hideBooks: hideBooks || null,
                 hideAwards: hideAwards || null,
                 hideInfo: hideInfo || null
