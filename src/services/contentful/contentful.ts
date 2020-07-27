@@ -32,13 +32,10 @@ const retrieveCurrentCompetition = async (client: ContentfulClientApi) => {
 
 const retrieveCompetitions = async (client: ContentfulClientApi) => {
     const {
-        items: competitions
-    }: EntryCollection<ICompetitionFields> = await client.getEntries({
-        include: 10,
-        content_type: 'competition'
-    })
+        fields: { archivedCompeitions }
+    } = await retrieveCurrentWebsite(client)
 
-    return fclone(competitions)
+    return fclone(archivedCompeitions)
 }
 
 const retrieveCompetition = async (client: ContentfulClientApi, id: string) => {

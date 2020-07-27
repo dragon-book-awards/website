@@ -18,10 +18,14 @@ const CompetitionsPage = ({
             <CompetitionCompetitionsBlock
                 competitions={
                     <Grid>
-                        {competitions.map(
-                            ({ sys: { id }, fields: { name } }) => (
-                                <CompetitionPreview name={name} id={id} />
+                        {competitions ? (
+                            competitions.map(
+                                ({ sys: { id }, fields: { name } }) => (
+                                    <CompetitionPreview name={name} id={id} />
+                                )
                             )
+                        ) : (
+                            <p>No competitions archived yet...</p>
                         )}
                     </Grid>
                 }
@@ -33,7 +37,7 @@ const CompetitionsPage = ({
 export const getServerSideProps = async () => {
     const competitions = await contentful.retrieveCompetitions(contentfulClient)
 
-    return { props: { competitions } }
+    return { props: { competitions: competitions || null } }
 }
 
 export default CompetitionsPage

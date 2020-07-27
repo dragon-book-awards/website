@@ -20,8 +20,20 @@ const BookBlock: FC<Props> = ({
 }) => {
     return (
         <div className={styles.container}>
-            <div className={styles.coverImageContainer}>{coverImage}</div>
+            <div className={styles.coverImageContainer}>
+                {coverImage}
+                {awards && (
+                    <div className={styles.centerContainer}>{awards}</div>
+                )}
+            </div>
             <div className={styles.content}>
+                {pinImage && (
+                    <div className={styles.pin}>
+                        <div className={styles.pinImage}>{pinImage}</div>
+                        <h6>Read this book, earn a pin!</h6>
+                    </div>
+                )}
+                <br />
                 <div className={styles.text}>
                     <h1>{title}</h1>
                     <p>
@@ -29,20 +41,7 @@ const BookBlock: FC<Props> = ({
                     </p>
                 </div>
                 <br />
-                {pinImage && (
-                    <div className={styles.centerContainer}>
-                        <div className={styles.pin}>
-                            <div className={styles.pinImage}>{pinImage}</div>
-                            <h6>Read this book, earn a pin!</h6>
-                        </div>
-                    </div>
-                )}
-                <br />
-                {awards && (
-                    <div className={styles.centerContainer}>{awards}</div>
-                )}
-                <br />
-                <div className={styles.richText}>{content}</div>
+                {content}
             </div>
         </div>
     )
