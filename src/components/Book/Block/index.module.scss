@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 15rem 1fr;
     grid-gap: 2rem;
-    margin: 2rem 5vw 2rem 5vw;
+    margin: 0 $block-side-margin;
 
     @media (max-width: $breakpoint-small) {
         grid-template-columns: 1fr;
