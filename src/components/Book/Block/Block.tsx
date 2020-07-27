@@ -26,7 +26,7 @@ const BookBlock: FC<Props> = ({
                 {pinImage && (
                     <div className={styles.pin}>
                         <div className={styles.pinImage}>{pinImage}</div>
-                        <h6>Read this book, win a pin!</h6>
+                        <h6>Read this book, earn a pin!</h6>
                     </div>
                 )}
             </div>
