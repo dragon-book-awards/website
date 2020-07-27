@@ -11,6 +11,13 @@
     .coverImage {
         z-index: -1;
         transition: $transition-duration;
+        width: 100%;
+        height: 100%;
+
+        & img {
+            width: 15rem;
+            height: 20rem;
+        }
     }
 
     &:hover,

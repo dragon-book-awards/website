@@ -62,6 +62,8 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
                 h5,
                 h6 {
                     font-family: 'Baloo Da 2';
+                    line-height: 100%;
+                    padding: 2rem 0;
                 }
 
                 h1 {
