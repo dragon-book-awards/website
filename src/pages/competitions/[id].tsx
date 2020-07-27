@@ -74,7 +74,7 @@ const CompetitionPage = ({
                     }
                 />
             )}
-            {hideAwards !== 'true' && (
+            {hideAwards !== 'true' && awards !== null && (
                 <AwardAwardsBlock
                     awards={
                         <Grid>
