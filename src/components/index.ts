@@ -28,3 +28,4 @@ export {
 export { Image } from './Image'
 export { Grid } from './Grid'
 export { HeaderBlock } from './HeaderBlock'
+export { HomeSplash } from './HomeSplash'
