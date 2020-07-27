@@ -42,6 +42,12 @@ interface Props {
 const RichText: FC<Props> = ({ documentNode }) => {
     const options: Options = {
         renderNode: {
+            [BLOCKS.PARAGRAPH]: (node, children) => (
+                <p>
+                    {children}
+                    <br />
+                </p>
+            ),
             [INLINES.EMBEDDED_ENTRY]: (node: Inline) => {
                 const contentTypeId = node.data.target.sys.contentType.sys.id
 
