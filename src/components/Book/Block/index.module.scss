@@ -14,7 +14,7 @@ $coverImageContainerWidth: calc(15rem + 10vw);
 }
 
 .coverImageContainer {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-self: center;
@@ -33,18 +33,19 @@ $coverImageContainerWidth: calc(15rem + 10vw);
 }
 
 .centerContainer {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
 }
 
 .pin {
-    border-radius: 1rem;
-    display: inline-flex;
-    padding: 0.5rem 5vw;
+    border-radius: 3rem;
+    display: flex;
     background-image: linear-gradient(90deg, $ssis-blue, #5b98e6);
     align-items: center;
     color: white;
     box-shadow: 0 0 0.5rem grey;
+    padding-right: 1rem;
 }
 
 .pinImage {
