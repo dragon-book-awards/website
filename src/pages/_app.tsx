@@ -31,6 +31,10 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
                     font-family: 'Roboto', sans-serif;
                 }
 
+                p {
+                    font-size: calc(1rem + 0.5vw);
+                }
+
                 hr {
                     margin: 1rem 0;
                 }
