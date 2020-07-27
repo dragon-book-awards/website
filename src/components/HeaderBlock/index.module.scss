@@ -1,7 +1,7 @@
 @import '../../styles/global.scss';
 
 .container {
-    padding: 0 $block-side-margin;
+    padding: 2rem $block-side-margin;
     background-image: linear-gradient(90deg, $ssis-blue, #5b98e6);
     color: white;
     display: flex;

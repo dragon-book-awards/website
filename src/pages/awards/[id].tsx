@@ -13,6 +13,8 @@ const AwardPage = ({
             <Head>
                 <title>{name} Award</title>
             </Head>
+            <br />
+            <br />
             <AwardBlock
                 name={name}
                 winner={

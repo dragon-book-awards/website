@@ -1,8 +1,10 @@
 @import '../../../styles/global.scss';
 
+$coverImageContainerWidth: minmax(calc(15rem + 15vw), 25rem);
+
 .container {
     display: grid;
-    grid-template-columns: 15rem 1fr;
+    grid-template-columns: $coverImageContainerWidth 1fr;
     grid-gap: 2rem;
     margin: 0 $block-side-margin;
 
@@ -13,8 +15,11 @@
 
 .coverImageContainer {
     justify-self: center;
-    width: 15rem;
-    overflow: hidden;
+    width: $coverImageContainerWidth;
+
+    & img {
+        box-shadow: 0 0 0.5rem grey;
+    }
 }
 
 .pin {
@@ -45,7 +50,6 @@
     justify-content: center;
 
     h3 {
-        line-height: 100%;
     }
 
     p {

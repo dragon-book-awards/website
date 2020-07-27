@@ -17,6 +17,8 @@ const BookPage = ({
             <Head>
                 <title>{title}</title>
             </Head>
+            <br />
+            <br />
             <BookBlock
                 title={title}
                 author={author}
