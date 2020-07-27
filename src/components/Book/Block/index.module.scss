@@ -1,6 +1,6 @@
 @import '../../../styles/global.scss';
 
-$coverImageContainerWidth: minmax(calc(10rem + 10vw), 25rem);
+$coverImageContainerWidth: calc(15rem + 10vw);
 
 .container {
     display: grid;
