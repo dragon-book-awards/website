@@ -43,6 +43,7 @@ const RichText: FC<Props> = ({ documentNode }) => {
     const options: Options = {
         renderNode: {
             [INLINES.EMBEDDED_ENTRY]: (node: Inline) => {
+                console.log(node)
                 const contentTypeId = node.data.target.sys.contentType.sys.id
 
                 if (contentTypeId === 'info') {
