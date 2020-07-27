@@ -21,6 +21,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
                     content="The Dragon Book Awards is a library program run by Saigon South International School with the goal of promoting reading throughout all divisions."
                 />
             </Head>
+
             <Component {...pageProps} />
             <style jsx global>{`
                 * {
