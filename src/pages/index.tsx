@@ -32,24 +32,22 @@ export const getServerSideProps = async () => {
     } = await contentful.retrieveCurrentWebsite(contentfulClient)
 
     // Get book cover image urls from current competition
-    let currentCompetitionBookCoverImageUrls = shuffle(
-        [].concat.apply(
-            [],
-            currentCompetition.fields.bookCategories.map(
-                ({ fields: { books } }) => {
-                    return books.map(
-                        ({
-                            fields: {
-                                coverImage: {
-                                    fields: {
-                                        file: { url }
-                                    }
+    let currentCompetitionBookCoverImageUrls = [].concat.apply(
+        [],
+        currentCompetition.fields.bookCategories.map(
+            ({ fields: { books } }) => {
+                return books.map(
+                    ({
+                        fields: {
+                            coverImage: {
+                                fields: {
+                                    file: { url }
                                 }
                             }
-                        }) => url
-                    )
-                }
-            )
+                        }
+                    }) => url
+                )
+            }
         )
     )
 
@@ -65,7 +63,7 @@ export const getServerSideProps = async () => {
             currentCompetition: currentCompetition,
             archivedCompeitions: archivedCompeitions || null,
             homePageInfo: homePageInfo,
-            homeSplashImageUrls: currentCompetitionBookCoverImageUrls
+            homeSplashImageUrls: shuffle(currentCompetitionBookCoverImageUrls)
         }
     }
 }
