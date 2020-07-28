@@ -25,13 +25,14 @@ $coverImageContainerWidth: calc(15rem + 10vw);
     }
 }
 
-.centerContainer {
+.awardsContainer {
     margin-top: 2rem;
     display: flex;
     justify-content: center;
 }
 
 .pin {
+    height: 5.7rem;
     border-radius: 3rem;
     display: flex;
     background-image: linear-gradient(90deg, $ssis-blue, #5b98e6);
