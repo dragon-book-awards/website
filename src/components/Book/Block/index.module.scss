@@ -25,6 +25,11 @@ $coverImageContainerWidth: calc(15rem + 10vw);
     }
 }
 
+.richText {
+    padding: 2vw;
+    box-shadow: 0 0 0.5rem grey;
+}
+
 .awardsContainer {
     margin-top: 2rem;
     display: flex;
@@ -55,6 +60,7 @@ $coverImageContainerWidth: calc(15rem + 10vw);
     text-align: center;
     box-shadow: 0 0 0.5rem grey;
     padding: 2rem;
+    box-shadow: 0 0 0.5rem grey;
 
     h1 {
         padding: 0;
