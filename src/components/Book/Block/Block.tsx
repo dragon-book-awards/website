@@ -44,7 +44,7 @@ const BookBlock: FC<Props> = ({
                     </p>
                 </div>
                 <br />
-                {content}
+                <div className={styles.richText}>{content}</div>
             </div>
         </div>
     )
