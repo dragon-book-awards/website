@@ -21,15 +21,8 @@ $coverImageContainerWidth: calc(15rem + 10vw);
     width: $coverImageContainerWidth;
 
     & img {
-        border-radius: 1rem;
         box-shadow: 0 0 0.5rem grey;
     }
-}
-
-.richText {
-    box-shadow: 0 0 0.5rem grey;
-    border-radius: 1rem;
-    padding: 1rem 5vw;
 }
 
 .centerContainer {
@@ -59,7 +52,6 @@ $coverImageContainerWidth: calc(15rem + 10vw);
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-radius: 1rem;
     box-shadow: 0 0 0.5rem grey;
     padding: 2rem;
 
