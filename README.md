@@ -1,5 +1,5 @@
 ## About
-This is the source code for the official Dragon Book Awards program at [https://www.ssis.edu.vn/](Saigon South International School)
+This is the source code for the official Dragon Book Awards program at [https://www.ssis.edu.vn](Saigon South International School)
 
 ## Run Locally
 
