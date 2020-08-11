@@ -7,6 +7,7 @@ interface Props {
     content: ReactElement
     coverImage: ReactElement
     pinImage?: ReactElement
+    pinUrl?: string
     awards: ReactElement
 }
 
@@ -16,8 +17,16 @@ const BookBlock: FC<Props> = ({
     content,
     coverImage,
     pinImage,
+    pinUrl,
     awards
 }) => {
+    const pin = (
+        <div className={styles.pin}>
+            <div className={styles.pinImage}>{pinImage}</div>
+            <h6>Read this book, earn a pin!</h6>
+        </div>
+    )
+
     return (
         <div className={styles.container}>
             <div className={styles.coverImageContainer}>
@@ -27,16 +36,16 @@ const BookBlock: FC<Props> = ({
                 )}
             </div>
             <div className={styles.content}>
-                {pinImage && (
-                    <>
-                        <div className={styles.pin}>
-                            <div className={styles.pinImage}>{pinImage}</div>
-                            <h6>Read this book, earn a pin!</h6>
-                        </div>
-
-                        <br />
-                    </>
-                )}
+                {pinImage ? (
+                    pinUrl ? (
+                        <a href={pinUrl} className={styles.pinAnchor}>
+                            {pin}
+                        </a>
+                    ) : (
+                        pin
+                    )
+                ) : null}
+                <br />
                 <div className={styles.text}>
                     <h1>{title}</h1>
                     <p>

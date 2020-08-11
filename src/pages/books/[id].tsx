@@ -10,6 +10,7 @@ const BookPage = ({
     content,
     coverImage,
     pinImage,
+    pinUrl,
     awards
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return (
@@ -38,6 +39,7 @@ const BookPage = ({
                         />
                     )
                 }
+                pinUrl={pinUrl}
                 awards={
                     <Grid>
                         {awards.map(
@@ -79,7 +81,7 @@ export const getServerSideProps = async ({
 }: GetServerSidePropsContext) => {
     if (typeof id === 'string') {
         const {
-            fields: { title, author, content, coverImage, pinImage }
+            fields: { title, author, content, coverImage, pinImage, pinUrl }
         } = await contentful.retrieveBook(contentfulClient, id)
 
         const awards = await contentful.retrieveBookAwards(contentfulClient, id)
@@ -91,6 +93,7 @@ export const getServerSideProps = async ({
                 content,
                 coverImage,
                 pinImage: pinImage || null,
+                pinUrl: pinUrl || null,
                 awards
             }
         }

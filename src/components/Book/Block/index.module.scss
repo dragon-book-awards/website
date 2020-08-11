@@ -54,6 +54,10 @@ $coverImageContainerWidth: calc(15rem + 10vw);
     box-shadow: 0 0 0.2rem grey;
 }
 
+.pinAnchor {
+    color: white;
+}
+
 .text {
     display: flex;
     flex-direction: column;
