@@ -43,6 +43,9 @@ export interface IBookFields {
     /** Pin Image */
     pinImage?: Asset | undefined
 
+    /** Pin URL */
+    pinUrl?: string | undefined
+
     /** Content */
     content: Document
 }
