@@ -33,8 +33,8 @@ const BookPage = ({
                 pinImage={
                     pinImage && (
                         <Image
-                            src={pinImage.fields.file.url}
-                            alt={pinImage.fields.description}
+                            src={pinImage?.fields.file.url}
+                            alt={pinImage?.fields.description}
                             pin
                         />
                     )
